@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f8">
+  <meta name="description" content="재윤샵 - 리부트, 경험치, 미네랄 전문 게임 서비스">
+  <title>재윤샵 | JAEYUN SHOP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <a href="#" class="brand" data-page="home">
+      <span class="brand-logo">J</span>
+      <span class="brand-copy">
+        <strong>JAEYUN SHOP</strong>
+        <small>GAME SERVICE CENTER</small>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="cartOpen" aria-label="장바구니">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6"/>
+          <circle cx="10" cy="20" r="1"/>
+          <circle cx="18" cy="20" r="1"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a class="header-chat" href="https://open.kakao.com/o/s6kZv0Ni"
+         target="_blank" rel="noopener noreferrer">오픈채팅</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page active" id="homePage">
+      <section class="hero">
+        <div class="eyebrow"><span class="live-dot"></span> GAME SERVICE CENTER</div>
+        <h1>게임은 즐기고,<br>작업은 <span>재윤샵</span>에게.</h1>
+        <p>원하는 서비스를 선택하고<br>간편하게 주문을 진행하세요.</p>
+        <button class="primary-btn" data-page="price">서비스 둘러보기 ↗</button>
+
+        <div class="hero-art">
+          <img src="할로위ㅏㄴ.png" alt="재윤샵 메인 배너">
+          <div class="hero-art-fallback">
+            <small>GAME SERVICE CENTER</small>
+            <strong>JAEYUN SHOP</strong>
+            <span>REBOOT · EXP · MINERAL</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">OUR SERVICES</span>
+            <h2>어떤 서비스가 필요하세요?</h2>
+          </div>
+          <button class="text-btn" data-page="price">가격표 보기 ↗</button>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card" data-category="reboot">
+            <span class="category-icon">⚡</span>
+            <strong>리부트 대리</strong>
+            <small>레벨업 서비스</small>
+          </button>
+          <button class="category-card" data-category="exp">
+            <span class="category-icon">✦</span>
+            <strong>경험치 대리</strong>
+            <small>경험치 작업</small>
+          </button>
+          <button class="category-card" data-category="mineral">
+            <span class="category-icon">◆</span>
+            <strong>미네랄</strong>
+            <small>미네랄 서비스</small>
+          </button>
+          <button class="category-card" data-category="clan">
+            <span class="category-icon">♢</span>
+            <strong>클랜 미네랄</strong>
+            <small>클랜 미네랄 작업</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="promo-card">
+        <span class="eyebrow">CLEAN SERVICE</span>
+        <h2>핵 미작이 아닌<br>깨끗한 클랜 미네랄!</h2>
+        <p>서비스 문의 및 주문은 오픈채팅으로.</p>
+        <a class="dark-btn" href="https://open.kakao.com/o/s6kZv0Ni"
+           target="_blank" rel="noopener noreferrer">문의하러 가기 ↗</a>
+        <span class="promo-mark">J.</span>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">POPULAR</span>
+            <h2>인기 서비스</h2>
+          </div>
+          <button class="text-btn" data-page="price">더 보기 ↗</button>
+        </div>
+        <div id="homeProducts" class="product-grid"></div>
+      </section>
+    </section>
+
+    <section class="page" id="pricePage">
+      <div class="page-heading">
+        <span class="eyebrow">SERVICE MENU</span>
+        <h1>서비스 가격표</h1>
+        <p>원하는 카테고리를 선택해 상품을 확인하세요.</p>
+      </div>
+
+      <div class="search-box">
+        <span>⌕</span>
+        <input id="priceSearchInput" type="search" placeholder="리부트 대리, 경험치 대리 검색">
+        <button id="clearSearch" aria-label="검색어 지우기">×</button>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter-chip selected" data-filter="reboot">리부트</button>
+        <button class="filter-chip" data-filter="exp">경험치</button>
+        <button class="filter-chip" data-filter="mineral">미네랄</button>
+        <button class="filter-chip" data-filter="clan">클랜 미네랄</button>
+      </div>
+
+      <div id="productList" class="product-grid"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <span>⌕</span>
+        <strong>검색 결과가 없어요.</strong>
+        <p>다른 검색어를 입력해 주세요.</p>
+      </div>
+
+      <div class="notice-inline">
+        <strong>ⓘ 주문 전 확인해 주세요</strong>
+        <p>상품을 장바구니에 담은 뒤 장바구니에서 주문 양식을 복사하고 오픈채팅으로 이동하세요.</p>
+      </div>
+    </section>
+
+    <section class="page" id="cartPage">
+      <div class="page-heading">
+        <span class="eyebrow">YOUR SELECTION</span>
+        <h1>장바구니</h1>
+        <p>선택한 상품을 확인하고 주문을 진행하세요.</p>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div id="cartEmpty" class="empty-state">
+        <span>🛒</span>
+        <strong>장바구니가 비어 있어요.</strong>
+        <p>마음에 드는 서비스를 담아 보세요.</p>
+        <button class="primary-btn" data-page="price">상품 둘러보기</button>
+      </div>
+
+      <div id="cartSummary" class="summary-card" hidden>
+        <div class="summary-line">
+          <span>상품 개수</span><strong id="summaryCount">0개</strong>
+        </div>
+        <div class="summary-line">
+          <span>예상 금액</span><strong id="cartTotalPrice">0원</strong>
+        </div>
+        <p class="summary-caption">문의 상품 및 추가 작업 비용은 별도 안내될 수 있습니다.</p>
+        <button class="primary-btn full-btn" id="copyCartOrder">주문 양식 복사</button>
+        <a class="dark-btn full-btn" href="https://open.kakao.com/o/s6kZv0Ni"
+           target="_blank" rel="noopener noreferrer">오픈채팅으로 이동 ↗</a>
+        <button class="clear-cart-btn" id="clearCart">장바구니 비우기</button>
+      </div>
+    </section>
+
+    <section class="page" id="orderPage">
+      <div class="page-heading">
+        <span class="eyebrow">HOW TO ORDER</span>
+        <h1>간편 주문 안내</h1>
+        <p>로그인 없이 주문 양식을 복사하고 오픈채팅으로 이동하세요.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step-card">
+          <span>01</span><div><strong>상품 선택</strong><p>가격표에서 원하는 상품을 고르세요.</p></div>
+        </div>
+        <div class="step-card">
+          <span>02</span><div><strong>장바구니 담기</strong><p>주문할 상품을 장바구니에 담으세요.</p></div>
+        </div>
+        <div class="step-card">
+          <span>03</span><div><strong>주문 양식 복사</strong><p>장바구니에서 주문 양식을 복사하세요.</p></div>
+        </div>
+        <div class="step-card">
+          <span>04</span><div><strong>오픈채팅으로 이동</strong><p>복사한 양식을 붙여 넣고 주문 내용을 작성하세요.</p></div>
+        </div>
+      </div>
+
+      <div class="order-cta">
+        <h2>주문할 준비가 되셨나요?</h2>
+        <p>상품을 선택한 뒤 오픈채팅으로 문의해 주세요.</p>
+        <button class="primary-btn full-btn" data-page="price">상품 선택하기</button>
+        <a class="dark-btn full-btn" href="https://open.kakao.com/o/s6kZv0Ni"
+           target="_blank" rel="noopener noreferrer">오픈채팅 바로가기 ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="footer-brand" data-page="home">JAEYUN SHOP®</a>
+    <p>GAME SERVICE CENTER</p>
+    <small>© 2026 JAEYUN SHOP. All rights reserved.</small>
+  </footer>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span><small>홈</small></button>
+    <button class="nav-item" data-page="price"><span class="nav-icon">▦</span><small>가격표</small></button>
+    <button class="nav-item" data-page="cart">
+      <span class="nav-icon nav-cart">🛒<i id="navCartCount">0</i></span><small>장바구니</small>
+    </button>
+    <button class="nav-item" data-page="order"><span class="nav-icon">☷</span><small>주문 안내</small></button>
+  </nav>
+</div>
+
+<div class="modal-backdrop" id="noticeModal" hidden>
+  <div class="modal">
+    <button class="modal-close" data-close="noticeModal" aria-label="닫기">×</button>
+    <span class="eyebrow">JAEYUN SHOP NOTICE</span>
+    <h2>재윤샵 이용 안내</h2>
+    <p>주문 전 가격과 서비스 내용을 확인해 주세요.</p>
+    <div class="notice-box">
+      <strong>📌 주문 방법</strong>
+      <p>1. 원하는 상품 선택</p>
+      <p>2. 장바구니에 담기</p>
+      <p>3. 주문 양식 복사 후 오픈채팅 전송</p>
+    </div>
+    <a class="dark-btn full-btn" href="https://open.kakao.com/o/s6kZv0Ni"
+       target="_blank" rel="noopener noreferrer">오픈채팅 바로가기 ↗</a>
+    <div class="modal-bottom">
+      <button id="hideNotice24">24시간 동안 보지 않기</button>
+      <button data-close="noticeModal">닫기</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
