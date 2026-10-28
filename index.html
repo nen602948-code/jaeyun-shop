@@ -38,7 +38,7 @@
     <section class="page active" id="homePage">
       <section class="hero">
         <div class="eyebrow"><span class="live-dot"></span> GAME SERVICE CENTER</div>
-        <h1>게임은 즐기시고요,<br>작업은 <span>재윤샵</span>에게.</h1>
+        <h1>게임은 즐기고,<br>작업은 <span>재윤샵</span>에게.</h1>
         <p>원하는 서비스를 선택하고<br>간편하게 주문을 진행하세요.</p>
         <button class="primary-btn" data-page="price">서비스 둘러보기 ↗</button>
 
@@ -225,10 +225,10 @@
     <h2>재윤샵 이용 안내</h2>
     <p>주문 전 가격과 서비스 내용을 확인해 주세요.</p>
     <div class="notice-box">
-      <strong>📌 주문 방법</strong>
-      <p>1. 원하는 상품 선택</p>
-      <p>2. 장바구니에 담기</p>
-      <p>3. 주문 양식 복사 후 오픈채팅 전송</p>
+      <strong>📌 원하시는 상품이 없으세요?</strong>
+      <p>원하는 상품이 없으신가요?</p>
+      <p>그럼 편하게 문의 해주세요!</p>
+      <p>친절히 가격까지 다 알려드립니다!</p>
     </div>
     <a class="dark-btn full-btn" href="https://open.kakao.com/o/s6kZv0Ni"
        target="_blank" rel="noopener noreferrer">오픈채팅 바로가기 ↗</a>
@@ -243,3 +243,306 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+<!-- 🎃 JAEYUN SHOP HALLOWEEN CLAN STOCK -->
+<section id="clan-stock-widget" hidden>
+  <div class="cs-head">
+    <div>
+      <span class="cs-eyebrow">🎃 JAEYUN SHOP · HALLOWEEN</span>
+      <h3 class="cs-title">클랜미네랄 재고</h3>
+      <p class="cs-subtitle">오늘의 클랜미네랄 재고를 확인하세요.</p>
+    </div>
+    <span class="cs-badge"><i></i> 재고 현황</span>
+  </div>
+
+  <div class="cs-panel">
+    <div class="cs-gem">💎</div>
+    <div class="cs-data">
+      <span class="cs-label">구매 가능 재고</span>
+      <div class="cs-number">
+        <strong id="cs-stock-number">2,350,132</strong>
+        <span>미네랄</span>
+      </div>
+      <div class="cs-track">
+        <div class="cs-fill" id="cs-stock-fill"></div>
+      </div>
+      <div class="cs-meta">
+        <span id="cs-stock-percent">기준 재고의 100%</span>
+        <span id="cs-stock-time">확인 중</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-cards">
+    <div class="cs-mini">
+      <span>재고 상태</span>
+      <strong id="cs-stock-status">재고 있음</strong>
+    </div>
+    <div class="cs-mini">
+      <span>거래 안내</span>
+      <strong>문의 후 진행</strong>
+    </div>
+  </div>
+
+  <p class="cs-note">
+    ※ 현재 재윤샵 실제 재고입니다. 30분마다 갱신됩니다.
+  </p>
+</section>
+
+<style>
+#clan-stock-widget[hidden] {
+  display: none !important;
+}
+#clan-stock-widget {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 18px 0;
+  padding: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #59354f;
+  border-radius: 18px;
+  color: #fff0e5;
+  background:
+    radial-gradient(ellipse at 100% 0%, #62305255, transparent 48%),
+    linear-gradient(145deg, #24152b, #100c18 78%);
+  box-shadow: 0 10px 28px #0004;
+  font-family: inherit;
+  line-height: 1.5;
+}
+#clan-stock-widget *,
+#clan-stock-widget *::before,
+#clan-stock-widget *::after {
+  box-sizing: border-box;
+}
+#clan-stock-widget .cs-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+#clan-stock-widget .cs-eyebrow {
+  color: #ffae63;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+#clan-stock-widget .cs-title {
+  margin: 7px 0 5px;
+  color: #fff1e4;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 850;
+}
+#clan-stock-widget .cs-subtitle {
+  margin: 0;
+  color: #b9a5c2;
+  font-size: 11px;
+}
+#clan-stock-widget .cs-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid #65422c;
+  border-radius: 30px;
+  background: #302018;
+  color: #ffc078;
+  font-size: 10px;
+  white-space: nowrap;
+}
+#clan-stock-widget .cs-badge i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff9c42;
+  box-shadow: 0 0 8px #ff9c42;
+}
+#clan-stock-widget .cs-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #49324f;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2b1b35, #1b1425);
+}
+#clan-stock-widget .cs-gem {
+  display: grid;
+  flex: 0 0 43px;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ff9d3d, #e45b2c);
+  box-shadow: 0 5px 16px #ff862533;
+  font-size: 22px;
+}
+#clan-stock-widget .cs-data {
+  flex: 1;
+  min-width: 0;
+}
+#clan-stock-widget .cs-label {
+  color: #b9a5c2;
+  font-size: 10px;
+}
+#clan-stock-widget .cs-number {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  margin: 5px 0 12px;
+}
+#clan-stock-widget .cs-number strong {
+  color: #fff1e4;
+  font-size: clamp(20px, 5vw, 29px);
+  line-height: 1.35;
+  letter-spacing: -.7px;
+  overflow-wrap: anywhere;
+}
+#clan-stock-widget .cs-number span {
+  color: #ffae63;
+  font-size: 11px;
+  font-weight: 750;
+}
+#clan-stock-widget .cs-track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #49334d;
+}
+#clan-stock-widget .cs-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f36a2f, #ffbd56, #b37aff);
+  transition: width .3s ease;
+}
+#clan-stock-widget .cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 8px;
+  color: #a991b3;
+  font-size: 9px;
+}
+#clan-stock-widget .cs-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 10px;
+}
+#clan-stock-widget .cs-mini {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #49324f;
+  border-radius: 12px;
+  background: #211529;
+}
+#clan-stock-widget .cs-mini span {
+  display: block;
+  margin-bottom: 5px;
+  color: #b9a5c2;
+  font-size: 10px;
+}
+#clan-stock-widget .cs-mini strong {
+  display: block;
+  color: #f8eaff;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+#clan-stock-widget .cs-note {
+  margin: 12px 0 0;
+  color: #a18bab;
+  font-size: 10px;
+  line-height: 1.7;
+}
+@media (max-width: 360px) {
+  #clan-stock-widget { padding: 13px; }
+  #clan-stock-widget .cs-panel { gap: 9px; padding: 10px; }
+  #clan-stock-widget .cs-gem {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const widget = document.getElementById("clan-stock-widget");
+  if (!widget || widget.dataset.ready) return;
+  widget.dataset.ready = "true";
+
+  // 재고 수량 수정
+  const stock = 2350132;
+  const maxStock = 2350132;
+
+  const $ = selector => widget.querySelector(selector);
+  const safeStock = Math.max(0, stock);
+  const ratio = Math.max(0, Math.min(100, safeStock / maxStock * 100));
+
+  $("#cs-stock-number").textContent =
+    safeStock.toLocaleString("ko-KR");
+  $("#cs-stock-fill").style.width = ratio + "%";
+  $("#cs-stock-percent").textContent =
+    "기준 재고의 " + Math.round(ratio) + "%";
+
+  const status = $("#cs-stock-status");
+  status.textContent = safeStock <= 0 ? "재고 소진" :
+    safeStock < 2350132 ? "재고 부족" : "재고 있음";
+  status.style.color = safeStock <= 0 ? "#ff7777" :
+    safeStock < 2350132 ? "#ffc078" : "#b8f58b";
+
+  function syncVisibility() {
+    // 가격표 화면에서 '클랜 미네랄' 카테고리가 선택된 경우에만 표시
+    const page = document.getElementById("pricePage");
+    const clanSelected = [...document.querySelectorAll(".filter-chip")]
+      .some(button =>
+        button.dataset.filter === "clan" &&
+        button.classList.contains("selected")
+      );
+
+    widget.hidden = !(page && page.classList.contains("active") && clanSelected);
+  }
+
+  // 가격표 페이지 안에 위젯을 배치
+  const pricePage = document.getElementById("pricePage");
+  if (pricePage) {
+    const notice = pricePage.querySelector(".notice-inline");
+    if (notice) pricePage.insertBefore(widget, notice);
+    else pricePage.appendChild(widget);
+  }
+
+  document.addEventListener("click", () => {
+    requestAnimationFrame(syncVisibility);
+  });
+
+  const observer = new MutationObserver(syncVisibility);
+  if (pricePage) {
+    observer.observe(pricePage, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  }
+  document.querySelectorAll(".filter-chip").forEach(button => {
+    observer.observe(button, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  });
+
+  $("#cs-stock-time").textContent = "확인 " +
+    new Date().toLocaleTimeString("ko-KR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+  syncVisibility();
+})();
+</script>

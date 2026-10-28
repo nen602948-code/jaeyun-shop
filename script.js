@@ -13,6 +13,33 @@ const NOTICE_KEY = "jaeyunShopNoticeHiddenUntil";
 /* 1. 상품 데이터 */
 
 const products = [
+        {
+    id: "clan1000",
+    name: "15렙 클랜 제작",
+    category: "clan",
+    categoryName: "15렙 클랜 제작",
+    description: "15렙 클랜 제작 입니다.(1레벨 부터 15렙 기준가격) 자세한건 문의주세요",
+    price: 450000,
+    image: "15렙.png"
+  },
+      {
+    id: "clan1000",
+    name: "클랜 미네랄 1000만",
+    category: "clan",
+    categoryName: "클랜 미네랄",
+    description: "클랜 미네랄 1000만 입니다.",
+    price: 40000,
+    image: "천만대청.png"
+  },
+      {
+    id: "clan500",
+    name: "클랜 미네랄 500만",
+    category: "clan",
+    categoryName: "클랜 미네랄",
+    description: "클랜 미네랄 500만 입니다",
+    price: 20000,
+    image: "오백.png"
+  },
     {
     id: "exp50",
     name: "경험치 1~99레벨",
@@ -90,9 +117,9 @@ const products = [
     name: "클랜 미네랄 100만",
     category: "clan",
     categoryName: "클랜 미네랄",
-    description: "클랜 미네랄 100만 단위",
+    description: "클랜 미네랄 100만 입니다",
     price: 4000,
-    image: "모시모시.png"
+    image: "500만클미.png"
   }
 ];
 
