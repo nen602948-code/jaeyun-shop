@@ -3,49 +3,48 @@
 
 /* =========================================
    JAEYUN SHOP — HALLOWEEN EDITION
-   네 index.html 구조에 맞춘 전체 스크립트
    ========================================= */
 
-const CHAT_URL = "https://open.kakao.com/o/여기에링크입력";
+const CHAT_URL = "https://open.kakao.com/o/s6kZv0Ni";
 const CART_KEY = "jaeyunShopCartV2";
 const NOTICE_KEY = "jaeyunShopNoticeHiddenUntil";
 
 /* 1. 상품 데이터 */
 
 const products = [
-        {
-    id: "clan1000",
+  {
+    id: "clan15",
     name: "15렙 클랜 제작",
     category: "clan",
-    categoryName: "15렙 클랜 제작",
-    description: "15렙 클랜 제작 입니다.(1레벨 부터 15렙 기준가격) 자세한건 문의주세요",
+    categoryName: "클랜 미네랄",
+    description: "1레벨부터 15레벨까지 클랜 제작 서비스입니다. 자세한 내용은 문의해 주세요.",
     price: 450000,
     image: "15렙.png"
   },
-      {
+  {
     id: "clan1000",
     name: "클랜 미네랄 1000만",
     category: "clan",
     categoryName: "클랜 미네랄",
-    description: "클랜 미네랄 1000만 입니다.",
+    description: "클랜 미네랄 1000만입니다.",
     price: 40000,
     image: "천만대청.png"
   },
-      {
+  {
     id: "clan500",
     name: "클랜 미네랄 500만",
     category: "clan",
     categoryName: "클랜 미네랄",
-    description: "클랜 미네랄 500만 입니다",
+    description: "클랜 미네랄 500만입니다.",
     price: 20000,
     image: "오백.png"
   },
-    {
-    id: "exp50",
+  {
+    id: "exp99",
     name: "경험치 1~99레벨",
     category: "exp",
     categoryName: "경험치",
-    description: "1레벨 부터 99렙까지 육성 해드립니다.",
+    description: "1레벨부터 99레벨까지 육성해 드립니다.",
     price: 120000,
     image: "으하핳하.png"
   },
@@ -54,7 +53,7 @@ const products = [
     name: "리부트 1~60레벨",
     category: "reboot",
     categoryName: "리부트",
-    description: "원하시는 직업 레벨을 60렙까지 올려드립니다.",
+    description: "원하시는 직업의 레벨을 60까지 올려드립니다.",
     price: 15000,
     image: "리부트레벨1.png"
   },
@@ -63,7 +62,7 @@ const products = [
     name: "리부트 60~80레벨",
     category: "reboot",
     categoryName: "리부트",
-    description: "원하시는 직업 60레벨을 80렙 까지 올려드립니다.",
+    description: "원하시는 직업의 레벨을 60부터 80까지 올려드립니다.",
     price: 60000,
     image: "리부트 60레벨 80레벨.png"
   },
@@ -72,7 +71,7 @@ const products = [
     name: "경험치 1~50레벨",
     category: "exp",
     categoryName: "경험치",
-    description: "50레벨 육성 서비스 입니다.",
+    description: "50레벨 육성 서비스입니다.",
     price: 4000,
     image: "경험치50.png"
   },
@@ -117,9 +116,48 @@ const products = [
     name: "클랜 미네랄 100만",
     category: "clan",
     categoryName: "클랜 미네랄",
-    description: "클랜 미네랄 100만 입니다",
+    description: "클랜 미네랄 100만입니다.",
     price: 4000,
     image: "500만클미.png"
+  },
+
+  /* 🎃 차원탐정 아람 — 와처 코인 */
+
+  {
+    id: "aram1000",
+    name: "와처 코인 1,000개",
+    category: "aram",
+    categoryName: "차원탐정 아람",
+    description: "차원탐정 아람 와처 코인 1,000개입니다. 1000개당 가격 입니다.",
+    price: 900,
+    image: "처언개.png"
+  },
+  {
+    id: "aram10000",
+    name: "와처 코인 10,000개",
+    category: "aram",
+    categoryName: "차원탐정 아람",
+    description: "차원탐정 아람 와처 코인 10,000개입니다.",
+    price: 9000,
+    image: "일만개.png"
+  },
+  {
+    id: "aram50000",
+    name: "와처 코인 50,000개",
+    category: "aram",
+    categoryName: "차원탐정 아람",
+    description: "차원탐정 아람 와처 코인 50,000개입니다.",
+    price: 45000,
+    image: "오망개.png"
+  },
+  {
+    id: "aram100000",
+    name: "와처 코인 100,000개",
+    category: "aram",
+    categoryName: "차원탐정 아람",
+    description: "차원탐정 아람 와처 코인 100,000개입니다.",
+    price: 90000,
+    image: "십만카이.png"
   }
 ];
 
@@ -165,7 +203,7 @@ function showToast(message) {
   }, 2300);
 }
 
-/* 3. 장바구니 불러오기 */
+/* 3. 장바구니 */
 
 function loadCart() {
   try {
@@ -176,15 +214,10 @@ function loadCart() {
     if (!Array.isArray(parsed)) return [];
 
     return parsed
-      .filter((item) =>
-        products.some((product) => product.id === item.id)
-      )
-      .map((item) => ({
+      .filter(item => products.some(product => product.id === item.id))
+      .map(item => ({
         id: item.id,
-        quantity: Math.max(
-          1,
-          Math.floor(Number(item.quantity) || 1)
-        )
+        quantity: Math.max(1, Math.floor(Number(item.quantity) || 1))
       }));
   } catch {
     return [];
@@ -206,8 +239,8 @@ function saveCart() {
 
 function cartDetails() {
   return cart
-    .map((item) => {
-      const product = products.find((p) => p.id === item.id);
+    .map(item => {
+      const product = products.find(p => p.id === item.id);
       if (!product) return null;
 
       return {
@@ -224,13 +257,10 @@ function cartQuantity() {
 }
 
 function cartTotal() {
-  return cartDetails().reduce(
-    (sum, item) => sum + item.subtotal,
-    0
-  );
+  return cartDetails().reduce((sum, item) => sum + item.subtotal, 0);
 }
 
-/* 4. 상품 카드 만들기 */
+/* 4. 상품 카드 */
 
 function createProductCard(product) {
   const card = document.createElement("article");
@@ -245,7 +275,7 @@ function createProductCard(product) {
   fallback.className = "product-image-fallback";
 
   const icon = document.createElement("strong");
-  icon.textContent = "🎃";
+  icon.textContent = product.category === "aram" ? "🪙" : "🎃";
 
   const logo = document.createElement("span");
   logo.textContent = "JAEYUN SHOP";
@@ -284,7 +314,6 @@ function createProductCard(product) {
 
   const price = document.createElement("div");
   price.className = "product-price";
-
   price.append(document.createTextNode(
     Number(product.price).toLocaleString("ko-KR")
   ));
@@ -312,7 +341,7 @@ function createProductCard(product) {
   return card;
 }
 
-/* 5. 상품 목록 및 검색 */
+/* 5. 상품 필터 및 검색 */
 
 let activeCategory = "reboot";
 let searchKeyword = "";
@@ -320,7 +349,7 @@ let searchKeyword = "";
 function getFilteredProducts() {
   const keyword = searchKeyword.trim().toLowerCase();
 
-  return products.filter((product) => {
+  return products.filter(product => {
     const categoryMatches =
       activeCategory === "all" ||
       product.category === activeCategory;
@@ -343,7 +372,7 @@ function renderProductList() {
 
   const filtered = getFilteredProducts();
 
-  filtered.forEach((product) => {
+  filtered.forEach(product => {
     list.append(createProductCard(product));
   });
 
@@ -357,7 +386,7 @@ function renderHomeProducts() {
 
   list.replaceChildren();
 
-  products.slice(0, 4).forEach((product) => {
+  products.slice(0, 4).forEach(product => {
     list.append(createProductCard(product));
   });
 }
@@ -365,7 +394,7 @@ function renderHomeProducts() {
 function selectCategory(category) {
   activeCategory = category || "all";
 
-  $$(".filter-chip").forEach((button) => {
+  $$(".filter-chip").forEach(button => {
     button.classList.toggle(
       "selected",
       (button.dataset.filter || "all") === activeCategory
@@ -376,7 +405,7 @@ function selectCategory(category) {
 }
 
 function setupSearchAndFilters() {
-  $$(".filter-chip").forEach((button) => {
+  $$(".filter-chip").forEach(button => {
     button.addEventListener("click", () => {
       selectCategory(button.dataset.filter || "all");
     });
@@ -393,13 +422,12 @@ function setupSearchAndFilters() {
 
   $("#clearSearch")?.addEventListener("click", () => {
     if (search) search.value = "";
-
     searchKeyword = "";
     renderProductList();
     search?.focus();
   });
 
-  $$(".category-card").forEach((button) => {
+  $$(".category-card").forEach(button => {
     button.addEventListener("click", () => {
       selectCategory(button.dataset.category || "all");
       showPage("price");
@@ -425,11 +453,8 @@ function showPage(pageName) {
     if (page) page.classList.toggle("active", name === pageName);
   });
 
-  $$(".nav-item").forEach((button) => {
-    button.classList.toggle(
-      "active",
-      button.dataset.page === pageName
-    );
+  $$(".nav-item").forEach(button => {
+    button.classList.toggle("active", button.dataset.page === pageName);
   });
 
   if (pageName === "cart") renderCart();
@@ -438,8 +463,8 @@ function showPage(pageName) {
 }
 
 function setupNavigation() {
-  $$("[data-page]").forEach((button) => {
-    button.addEventListener("click", (event) => {
+  $$("[data-page]").forEach(button => {
+    button.addEventListener("click", event => {
       const pageName = button.dataset.page;
       if (!pageMap[pageName]) return;
 
@@ -453,13 +478,13 @@ function setupNavigation() {
   });
 }
 
-/* 7. 장바구니 추가, 삭제, 비우기 */
+/* 7. 장바구니 기능 */
 
 function addToCart(productId) {
-  const product = products.find((item) => item.id === productId);
+  const product = products.find(item => item.id === productId);
   if (!product) return;
 
-  const existing = cart.find((item) => item.id === productId);
+  const existing = cart.find(item => item.id === productId);
 
   if (existing) {
     existing.quantity += 1;
@@ -472,7 +497,7 @@ function addToCart(productId) {
 }
 
 function removeFromCart(productId) {
-  cart = cart.filter((item) => item.id !== productId);
+  cart = cart.filter(item => item.id !== productId);
   saveCart();
   showToast("상품을 삭제했어요.");
 }
@@ -490,9 +515,7 @@ function updateCartCount() {
   }
 
   const summaryCount = $("#summaryCount");
-  if (summaryCount) {
-    summaryCount.textContent = count + "개";
-  }
+  if (summaryCount) summaryCount.textContent = count + "개";
 }
 
 function renderCart() {
@@ -503,13 +526,13 @@ function renderCart() {
 
   const details = cartDetails();
 
-  details.forEach((item) => {
+  details.forEach(item => {
     const row = document.createElement("div");
     row.className = "cart-item";
 
     const icon = document.createElement("div");
     icon.className = "cart-item-icon";
-    icon.textContent = "🎃";
+    icon.textContent = item.category === "aram" ? "🪙" : "🎃";
 
     const info = document.createElement("div");
     info.className = "cart-item-info";
@@ -518,8 +541,7 @@ function renderCart() {
     name.textContent = item.name;
 
     const quantity = document.createElement("small");
-    quantity.textContent =
-      money(item.price) + " × " + item.quantity + "개";
+    quantity.textContent = money(item.price) + " × " + item.quantity + "개";
 
     info.append(name, quantity);
 
@@ -533,10 +555,7 @@ function renderCart() {
     remove.type = "button";
     remove.className = "remove-item";
     remove.textContent = "삭제";
-
-    remove.addEventListener("click", () => {
-      removeFromCart(item.id);
-    });
+    remove.addEventListener("click", () => removeFromCart(item.id));
 
     right.append(subtotal, remove);
     row.append(icon, info, right);
@@ -619,7 +638,6 @@ async function copyOrderForm() {
       textarea.setAttribute("readonly", "");
       textarea.style.position = "fixed";
       textarea.style.left = "-9999px";
-
       document.body.append(textarea);
       textarea.select();
 
@@ -636,7 +654,7 @@ async function copyOrderForm() {
 }
 
 function setupOrderButtons() {
-  $("#copyCartOrder")?.addEventListener("click", (event) => {
+  $("#copyCartOrder")?.addEventListener("click", event => {
     event.preventDefault();
     copyOrderForm();
   });
@@ -651,7 +669,7 @@ function setupNotice() {
   const until = Number(safeStorageGet(NOTICE_KEY) || 0);
   modal.hidden = Date.now() < until;
 
-  $$("[data-close='noticeModal']").forEach((button) => {
+  $$("[data-close='noticeModal']").forEach(button => {
     button.addEventListener("click", () => {
       modal.hidden = true;
     });
@@ -662,23 +680,19 @@ function setupNotice() {
       NOTICE_KEY,
       String(Date.now() + 24 * 60 * 60 * 1000)
     );
-
     modal.hidden = true;
   });
 
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.hidden = true;
-    }
+  modal.addEventListener("click", event => {
+    if (event.target === modal) modal.hidden = true;
   });
 }
 
-/* 10. 오픈채팅 링크 검사
-   실제 링크는 index.html의 href에서 관리한다. */
+/* 10. 오픈채팅 링크 */
 
 function setupChatLinks() {
-  $$('a[href*="open.kakao.com"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
+  $$('a[href*="open.kakao.com"]').forEach(link => {
+    link.addEventListener("click", event => {
       if (link.href.includes("여기에링크입력")) {
         event.preventDefault();
         showToast("HTML에서 실제 오픈채팅 링크를 입력해 주세요.");

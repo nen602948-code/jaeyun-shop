@@ -124,6 +124,7 @@
         <button class="filter-chip" data-filter="exp">경험치</button>
         <button class="filter-chip" data-filter="mineral">미네랄</button>
         <button class="filter-chip" data-filter="clan">클랜 미네랄</button>
+        <button class="filter-chip" data-filter="aram">차원탐정 아람</button>
       </div>
 
       <div id="productList" class="product-grid"></div>
@@ -241,6 +242,160 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
+
+<!-- 🎃 차원탐정 아람 NEW 네온 효과 -->
+<style>
+/* 기존 버튼의 위치와 크기를 유지 */
+.filter-chip[data-filter="aram"] {
+  position: relative !important;
+  isolation: isolate;
+  overflow: visible !important;
+  z-index: 1;
+
+  border: 1px solid #ff9b43 !important;
+  border-radius: 999px !important;
+  color: #211020 !important;
+  background: linear-gradient(115deg, #ffd16b, #ff9237, #ff702e) !important;
+
+  font-weight: 900 !important;
+  box-shadow:
+    0 0 7px #ff8a3d80,
+    0 0 18px #ff762e30,
+    inset 0 1px 0 #fff6c5 !important;
+
+  animation: aramGlow 2s ease-in-out infinite;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* 버튼 바깥의 회전 네온 링 */
+.filter-chip[data-filter="aram"]::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5px;
+  border-radius: inherit;
+  padding: 2px;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #ff9c39 45deg,
+    #fff1a8 75deg,
+    #ff43e7 140deg,
+    #8e4dff 210deg,
+    transparent 280deg,
+    #ff9c39 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: drop-shadow(0 0 4px #ff45e7);
+  animation: aramRingRotate 2.4s linear infinite;
+  pointer-events: none;
+}
+
+/* 은은한 네온 후광 */
+.filter-chip[data-filter="aram"]::after {
+  content: "NEW ✦";
+  position: absolute;
+  z-index: 3;
+  top: -13px;
+  right: -5px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3px 7px;
+  border: 1px solid #ffb7ff;
+  border-radius: 7px 7px 7px 2px;
+
+  background: linear-gradient(120deg, #ff46db, #8c42ff);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 1000;
+  line-height: 1.4;
+  letter-spacing: .7px;
+  white-space: nowrap;
+
+  box-shadow:
+    0 0 5px #ff52e7,
+    0 0 12px #d34bff,
+    0 0 22px #a34aff80;
+
+  transform: rotate(-7deg);
+  animation: aramNewFloat 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* 마우스를 올리면 더 강하게 빛남 */
+.filter-chip[data-filter="aram"]:hover {
+  transform: translateY(-2px) scale(1.035);
+  box-shadow:
+    0 0 10px #ffad43,
+    0 0 25px #ff793d80,
+    0 0 40px #b94cff40,
+    inset 0 1px 0 #fff6c5 !important;
+}
+
+/* 선택된 상태도 주황색 유지 */
+.filter-chip[data-filter="aram"].selected {
+  color: #211020 !important;
+  background: linear-gradient(115deg, #ffe28b, #ff9c43, #ff702e) !important;
+  box-shadow:
+    0 0 12px #ff9a43a0,
+    0 0 25px #ff762e55,
+    inset 0 1px 0 #fff6c5 !important;
+}
+
+@keyframes aramRingRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes aramGlow {
+  0%, 100% {
+    filter: brightness(1);
+    box-shadow:
+      0 0 7px #ff8a3d70,
+      0 0 15px #ff762e25,
+      inset 0 1px 0 #fff6c5;
+  }
+  50% {
+    filter: brightness(1.13);
+    box-shadow:
+      0 0 10px #ffad54,
+      0 0 24px #ff762e65,
+      0 0 32px #b94cff25,
+      inset 0 1px 0 #fff6c5;
+  }
+}
+
+@keyframes aramNewFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-7deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-3px) rotate(-4deg);
+    filter: brightness(1.3);
+  }
+}
+
+/* 움직임 줄이기 설정을 사용하는 기기 배려 */
+@media (prefers-reduced-motion: reduce) {
+  .filter-chip[data-filter="aram"],
+  .filter-chip[data-filter="aram"]::before,
+  .filter-chip[data-filter="aram"]::after {
+    animation: none !important;
+  }
+}
+</style>
+
 </body>
 </html>
 
