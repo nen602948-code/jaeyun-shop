@@ -129,7 +129,7 @@ const products = [
     category: "aram",
     categoryName: "차원탐정 아람",
     description: "차원탐정 아람 와처 코인 1,000개입니다. 1000개당 가격 입니다.",
-    price: 900,
+    price: 500,
     image: "처언개.png"
   },
   {
@@ -138,7 +138,7 @@ const products = [
     category: "aram",
     categoryName: "차원탐정 아람",
     description: "차원탐정 아람 와처 코인 10,000개입니다.",
-    price: 10000,
+    price: 5000,
     image: "일만개.png"
   },
   {
@@ -147,7 +147,7 @@ const products = [
     category: "aram",
     categoryName: "차원탐정 아람",
     description: "차원탐정 아람 와처 코인 50,000개입니다.",
-    price: 30000,
+    price: 20000,
     image: "오망개.png"
   },
   {
@@ -156,7 +156,7 @@ const products = [
     category: "aram",
     categoryName: "차원탐정 아람",
     description: "차원탐정 아람 와처 코인 100,000개입니다.",
-    price: 60000,
+    price: 35000,
     image: "십만카이.png"
   }
 ];
