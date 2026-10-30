@@ -415,7 +415,7 @@
     <div class="cs-data">
       <span class="cs-label">구매 가능 재고</span>
       <div class="cs-number">
-        <strong id="cs-stock-number">341,012</strong>
+        <strong id="cs-stock-number">0</strong>
         <span>미네랄</span>
       </div>
       <div class="cs-track">
@@ -431,7 +431,7 @@
   <div class="cs-cards">
     <div class="cs-mini">
       <span>재고 상태</span>
-      <strong id="cs-stock-status">재고 부족</strong>
+      <strong id="cs-stock-status">재고 소진</strong>
     </div>
     <div class="cs-mini">
       <span>거래 안내</span>
@@ -635,8 +635,8 @@
   widget.dataset.ready = "true";
 
   // 재고 수량 수정
-  const stock = 341012;
-  const maxStock = 341012;
+  const stock = 0;
+  const maxStock = 0;
 
   const $ = selector => widget.querySelector(selector);
   const safeStock = Math.max(0, stock);
