@@ -415,7 +415,7 @@
     <div class="cs-data">
       <span class="cs-label">구매 가능 재고</span>
       <div class="cs-number">
-        <strong id="cs-stock-number">2,350,132</strong>
+        <strong id="cs-stock-number">341,012</strong>
         <span>미네랄</span>
       </div>
       <div class="cs-track">
@@ -431,7 +431,7 @@
   <div class="cs-cards">
     <div class="cs-mini">
       <span>재고 상태</span>
-      <strong id="cs-stock-status">재고 있음</strong>
+      <strong id="cs-stock-status">재고 부족</strong>
     </div>
     <div class="cs-mini">
       <span>거래 안내</span>
@@ -440,7 +440,7 @@
   </div>
 
   <p class="cs-note">
-    ※ 현재 재윤샵 실제 재고입니다. 30분마다 갱신됩니다.
+    ※ 현재 재윤샵 실제 재고입니다. AI가 30분마다 갱신됩니다.
   </p>
 </section>
 
@@ -635,8 +635,8 @@
   widget.dataset.ready = "true";
 
   // 재고 수량 수정
-  const stock = 2350132;
-  const maxStock = 2350132;
+  const stock = 341012;
+  const maxStock = 341012;
 
   const $ = selector => widget.querySelector(selector);
   const safeStock = Math.max(0, stock);
