@@ -2,7 +2,7 @@
 "use strict";
 
 /* =========================================
-   JAEYUN SHOP — HALLOWEEN EDITION
+   JAEYUN SHOP
    ========================================= */
 
 const CHAT_URL = "https://open.kakao.com/o/s6kZv0Ni";
@@ -121,14 +121,14 @@ const products = [
     image: "500만클미.png"
   },
 
-  /* 🎃 차원탐정 아람 — 와처 코인 */
+  /* 차원탐정 아람 — 와처 코인 */
 
   {
     id: "aram1000",
     name: "와처 코인 1,000개",
     category: "aram",
     categoryName: "차원탐정 아람",
-    description: "차원탐정 아람 와처 코인 1,000개입니다. 1000개당 가격 입니다.",
+    description: "차원탐정 아람 와처 코인 1,000개입니다. 1000개당 가격입니다.",
     price: 500,
     image: "처언개.png"
   },

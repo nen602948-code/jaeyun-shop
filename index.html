@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f7f8">
+  <meta name="theme-color" content="#f5f3fa">
   <meta name="description" content="재윤샵 - 리부트, 경험치, 미네랄 전문 게임 서비스">
   <title>재윤샵 | JAEYUN SHOP</title>
   <link rel="stylesheet" href="style.css">
@@ -35,6 +35,7 @@
   </header>
 
   <main>
+    <!-- 홈 -->
     <section class="page active" id="homePage">
       <section class="hero">
         <div class="eyebrow"><span class="live-dot"></span> GAME SERVICE CENTER</div>
@@ -43,7 +44,7 @@
         <button class="primary-btn" data-page="price">서비스 둘러보기 ↗</button>
 
         <div class="hero-art">
-          <img src="할로위ㅏㄴ.png" alt="재윤샵 메인 배너">
+          <img src="아트웍_2025수능응원.png" alt="재윤샵 메인 배너">
           <div class="hero-art-fallback">
             <small>GAME SERVICE CENTER</small>
             <strong>JAEYUN SHOP</strong>
@@ -106,6 +107,7 @@
       </section>
     </section>
 
+    <!-- 가격표 -->
     <section class="page" id="pricePage">
       <div class="page-heading">
         <span class="eyebrow">SERVICE MENU</span>
@@ -134,12 +136,14 @@
         <p>다른 검색어를 입력해 주세요.</p>
       </div>
 
+      <!-- 클랜 재고 위젯은 이 위치로 자동 이동 -->
       <div class="notice-inline">
         <strong>ⓘ 주문 전 확인해 주세요</strong>
         <p>상품을 장바구니에 담은 뒤 장바구니에서 주문 양식을 복사하고 오픈채팅으로 이동하세요.</p>
       </div>
     </section>
 
+    <!-- 장바구니 -->
     <section class="page" id="cartPage">
       <div class="page-heading">
         <span class="eyebrow">YOUR SELECTION</span>
@@ -171,6 +175,7 @@
       </div>
     </section>
 
+    <!-- 주문 안내 -->
     <section class="page" id="orderPage">
       <div class="page-heading">
         <span class="eyebrow">HOW TO ORDER</span>
@@ -180,16 +185,20 @@
 
       <div class="steps">
         <div class="step-card">
-          <span>01</span><div><strong>상품 선택</strong><p>가격표에서 원하는 상품을 고르세요.</p></div>
+          <span>01</span>
+          <div><strong>상품 선택</strong><p>가격표에서 원하는 상품을 고르세요.</p></div>
         </div>
         <div class="step-card">
-          <span>02</span><div><strong>장바구니 담기</strong><p>주문할 상품을 장바구니에 담으세요.</p></div>
+          <span>02</span>
+          <div><strong>장바구니 담기</strong><p>주문할 상품을 장바구니에 담으세요.</p></div>
         </div>
         <div class="step-card">
-          <span>03</span><div><strong>주문 양식 복사</strong><p>장바구니에서 주문 양식을 복사하세요.</p></div>
+          <span>03</span>
+          <div><strong>주문 양식 복사</strong><p>장바구니에서 주문 양식을 복사하세요.</p></div>
         </div>
         <div class="step-card">
-          <span>04</span><div><strong>오픈채팅으로 이동</strong><p>복사한 양식을 붙여 넣고 주문 내용을 작성하세요.</p></div>
+          <span>04</span>
+          <div><strong>오픈채팅으로 이동</strong><p>복사한 양식을 붙여 넣고 주문 내용을 작성하세요.</p></div>
         </div>
       </div>
 
@@ -200,6 +209,19 @@
         <a class="dark-btn full-btn" href="https://open.kakao.com/o/s6kZv0Ni"
            target="_blank" rel="noopener noreferrer">오픈채팅 바로가기 ↗</a>
       </div>
+    </section>
+
+    <!-- 구매 후기 -->
+    <section id="jy-review-section">
+      <div class="review-heading">
+        <div>
+          <span class="review-eyebrow">JAEYUN SHOP · REVIEWS</span>
+          <h3>실제 구매후기</h3>
+          <p class="review-subtitle">구매 고객의 후기와 인증 사진을 확인하세요.</p>
+        </div>
+        <span class="review-count" id="jyReviewCount">0 REVIEWS</span>
+      </div>
+      <div class="review-grid" id="jyReviewGrid"></div>
     </section>
   </main>
 
@@ -213,12 +235,14 @@
     <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span><small>홈</small></button>
     <button class="nav-item" data-page="price"><span class="nav-icon">▦</span><small>가격표</small></button>
     <button class="nav-item" data-page="cart">
-      <span class="nav-icon nav-cart">🛒<i id="navCartCount">0</i></span><small>장바구니</small>
+      <span class="nav-icon nav-cart">🛒<i id="navCartCount">0</i></span>
+      <small>장바구니</small>
     </button>
     <button class="nav-item" data-page="order"><span class="nav-icon">☷</span><small>주문 안내</small></button>
   </nav>
 </div>
 
+<!-- 공지 모달 -->
 <div class="modal-backdrop" id="noticeModal" hidden>
   <div class="modal">
     <button class="modal-close" data-close="noticeModal" aria-label="닫기">×</button>
@@ -240,433 +264,68 @@
   </div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="script.js"></script>
-
-<!-- 🎃 차원탐정 아람 NEW 네온 효과 -->
-<style>
-/* 기존 버튼의 위치와 크기를 유지 */
-.filter-chip[data-filter="aram"] {
-  position: relative !important;
-  isolation: isolate;
-  overflow: visible !important;
-  z-index: 1;
-
-  border: 1px solid #ff9b43 !important;
-  border-radius: 999px !important;
-  color: #211020 !important;
-  background: linear-gradient(115deg, #ffd16b, #ff9237, #ff702e) !important;
-
-  font-weight: 900 !important;
-  box-shadow:
-    0 0 7px #ff8a3d80,
-    0 0 18px #ff762e30,
-    inset 0 1px 0 #fff6c5 !important;
-
-  animation: aramGlow 2s ease-in-out infinite;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-/* 버튼 바깥의 회전 네온 링 */
-.filter-chip[data-filter="aram"]::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -5px;
-  border-radius: inherit;
-  padding: 2px;
-
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    #ff9c39 45deg,
-    #fff1a8 75deg,
-    #ff43e7 140deg,
-    #8e4dff 210deg,
-    transparent 280deg,
-    #ff9c39 360deg
-  );
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  filter: drop-shadow(0 0 4px #ff45e7);
-  animation: aramRingRotate 2.4s linear infinite;
-  pointer-events: none;
-}
-
-/* 은은한 네온 후광 */
-.filter-chip[data-filter="aram"]::after {
-  content: "NEW ✦";
-  position: absolute;
-  z-index: 3;
-  top: -13px;
-  right: -5px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 3px 7px;
-  border: 1px solid #ffb7ff;
-  border-radius: 7px 7px 7px 2px;
-
-  background: linear-gradient(120deg, #ff46db, #8c42ff);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 1000;
-  line-height: 1.4;
-  letter-spacing: .7px;
-  white-space: nowrap;
-
-  box-shadow:
-    0 0 5px #ff52e7,
-    0 0 12px #d34bff,
-    0 0 22px #a34aff80;
-
-  transform: rotate(-7deg);
-  animation: aramNewFloat 1.5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* 마우스를 올리면 더 강하게 빛남 */
-.filter-chip[data-filter="aram"]:hover {
-  transform: translateY(-2px) scale(1.035);
-  box-shadow:
-    0 0 10px #ffad43,
-    0 0 25px #ff793d80,
-    0 0 40px #b94cff40,
-    inset 0 1px 0 #fff6c5 !important;
-}
-
-/* 선택된 상태도 주황색 유지 */
-.filter-chip[data-filter="aram"].selected {
-  color: #211020 !important;
-  background: linear-gradient(115deg, #ffe28b, #ff9c43, #ff702e) !important;
-  box-shadow:
-    0 0 12px #ff9a43a0,
-    0 0 25px #ff762e55,
-    inset 0 1px 0 #fff6c5 !important;
-}
-
-@keyframes aramRingRotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@keyframes aramGlow {
-  0%, 100% {
-    filter: brightness(1);
-    box-shadow:
-      0 0 7px #ff8a3d70,
-      0 0 15px #ff762e25,
-      inset 0 1px 0 #fff6c5;
-  }
-  50% {
-    filter: brightness(1.13);
-    box-shadow:
-      0 0 10px #ffad54,
-      0 0 24px #ff762e65,
-      0 0 32px #b94cff25,
-      inset 0 1px 0 #fff6c5;
-  }
-}
-
-@keyframes aramNewFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-7deg);
-    filter: brightness(1);
-  }
-  50% {
-    transform: translateY(-3px) rotate(-4deg);
-    filter: brightness(1.3);
-  }
-}
-
-/* 움직임 줄이기 설정을 사용하는 기기 배려 */
-@media (prefers-reduced-motion: reduce) {
-  .filter-chip[data-filter="aram"],
-  .filter-chip[data-filter="aram"]::before,
-  .filter-chip[data-filter="aram"]::after {
-    animation: none !important;
-  }
-}
-</style>
-
-<!-- ==========================================
- JAEYUN SHOP - 구매후기 갤러리
- 사진과 상품명 직접 관리
-========================================== -->
-
-<style>
-#jy-review-section {
-  width: calc(100% - 28px);
-  max-width: 480px;
-  margin: 30px auto 110px;
-  padding: 18px;
-  box-sizing: border-box;
-  border: 1px solid #513252;
-  border-radius: 18px;
-  background: linear-gradient(145deg,#211529,#100d18);
-  color: #fff0e8;
-  font-family: inherit;
-}
-
-#jy-review-section *,
-#jy-review-modal * {
-  box-sizing: border-box;
-}
-
-#jy-review-section .review-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 17px;
-}
-
-#jy-review-section .review-eyebrow {
-  color: #ff9b52;
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 1.4px;
-}
-
-#jy-review-section h3 {
-  margin: 6px 0;
-  font-size: 20px;
-  font-weight: 900;
-  color: #fff0e8;
-}
-
-#jy-review-section .review-subtitle {
-  margin: 0;
-  color: #aa97b4;
-  font-size: 11px;
-}
-
-#jy-review-section .review-count {
-  padding: 7px 10px;
-  border: 1px solid #65402f;
-  border-radius: 30px;
-  background: #302018;
-  color: #ffad61;
-  font-size: 10px;
-  white-space: nowrap;
-}
-
-#jy-review-section .review-grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 11px;
-}
-
-#jy-review-section .review-card {
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid #49324f;
-  border-radius: 13px;
-  background: #1b1422;
-  cursor: pointer;
-  transition: transform .2s ease, border-color .2s ease;
-}
-
-#jy-review-section .review-card:hover {
-  transform: translateY(-3px);
-  border-color: #c178ff;
-}
-
-#jy-review-section .review-photo {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: linear-gradient(135deg,#30203d,#171020);
-}
-
-#jy-review-section .review-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#jy-review-section .review-photo-empty {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  place-items: center;
-  color: #9d7cac;
-  font-size: 30px;
-}
-
-#jy-review-section .review-info {
-  padding: 11px;
-}
-
-#jy-review-section .review-tag {
-  display: inline-block;
-  padding: 4px 7px;
-  border: 1px solid #69416e;
-  border-radius: 6px;
-  color: #d9a2ff;
-  font-size: 9px;
-  font-weight: 800;
-}
-
-#jy-review-section .review-product {
-  display: block;
-  margin-top: 8px;
-  color: #fff0e8;
-  font-size: 12px;
-  font-weight: 850;
-  overflow-wrap: anywhere;
-}
-
-#jy-review-section .review-text {
-  margin: 7px 0 0;
-  color: #aa97b4;
-  font-size: 10px;
-  line-height: 1.6;
-  overflow-wrap: anywhere;
-}
-
-#jy-review-section .review-empty {
-  grid-column: 1 / -1;
-  padding: 28px 12px;
-  border: 1px dashed #49324f;
-  border-radius: 12px;
-  color: #a995b2;
-  text-align: center;
-  font-size: 11px;
-  line-height: 1.8;
-}
-
-/* 사진 확대 모달 */
-#jy-review-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 100000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: #08050de8;
-}
-
-#jy-review-modal.open {
-  display: flex;
-}
-
-#jy-review-modal .review-modal-box {
-  width: 100%;
-  max-width: 430px;
-  max-height: 90vh;
-  overflow-y: auto;
-  border: 1px solid #674273;
-  border-radius: 16px;
-  background: #1b1422;
-  box-shadow: 0 15px 50px #0009;
-}
-
-#jy-review-modal .review-modal-image {
-  display: block;
-  width: 100%;
-  max-height: 65vh;
-  object-fit: contain;
-  background: #100c17;
-}
-
-#jy-review-modal .review-modal-info {
-  padding: 16px;
-}
-
-#jy-review-modal .review-modal-title {
-  color: #ffad61;
-  font-size: 14px;
-  font-weight: 900;
-}
-
-#jy-review-modal .review-modal-description {
-  margin-top: 8px;
-  color: #c4b1cc;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-#jy-review-modal .review-modal-close {
-  display: block;
-  width: 100%;
-  margin-top: 13px;
-  padding: 11px;
-  border: 1px solid #674273;
-  border-radius: 9px;
-  background: #302039;
-  color: #fff;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-@media(max-width:350px) {
-  #jy-review-section {
-    padding: 13px;
-  }
-
-  #jy-review-section .review-grid {
-    gap: 8px;
-  }
-
-  #jy-review-section .review-info {
-    padding: 9px;
-  }
-}
-</style>
-
-<section id="jy-review-section">
-  <div class="review-heading">
-    <div>
-      <span class="review-eyebrow">JAEYUN SHOP · REVIEWS</span>
-      <h3>실제 구매후기</h3>
-      <p class="review-subtitle">
-        구매 고객의 후기와 인증 사진을 확인하세요.
-      </p>
-    </div>
-    <span class="review-count" id="jyReviewCount">0 REVIEWS</span>
-  </div>
-
-  <div class="review-grid" id="jyReviewGrid"></div>
-</section>
-
+<!-- 구매 후기 사진 확대 모달 -->
 <div id="jy-review-modal">
   <div class="review-modal-box">
     <img class="review-modal-image" id="jyReviewModalImage" alt="구매후기 사진">
     <div class="review-modal-info">
       <div class="review-modal-title" id="jyReviewModalTitle"></div>
       <div class="review-modal-description" id="jyReviewModalDescription"></div>
-      <button class="review-modal-close" id="jyReviewModalClose">
-        닫기
-      </button>
+      <button class="review-modal-close" id="jyReviewModalClose">닫기</button>
     </div>
   </div>
 </div>
 
-<script>
-(() => {
-  /* =====================================
-     구매후기 직접 수정하는 곳
-     
-     image: 사진 파일명 또는 이미지 경로
-     product: 구매한 상품명
-     review: 구매후기 문구
-     date: 날짜
-     
-     사진 파일은 index.html과 같은 폴더에
-     넣으면 파일명만 적어도 됩니다.
-  ===================================== */
+<!-- 클랜 미네랄 재고 위젯 -->
+<section id="clan-stock-widget" hidden>
+  <div class="cs-head">
+    <div>
+      <span class="cs-eyebrow">JAEYUN SHOP</span>
+      <h3 class="cs-title">클랜미네랄 재고</h3>
+      <p class="cs-subtitle">오늘의 클랜미네랄 재고를 확인하세요.</p>
+    </div>
+    <span class="cs-badge"><i></i> 재고 현황</span>
+  </div>
 
+  <div class="cs-panel">
+    <div class="cs-gem">💎</div>
+    <div class="cs-data">
+      <span class="cs-label">구매 가능 재고</span>
+      <div class="cs-number">
+        <strong id="cs-stock-number">300,000</strong>
+        <span>미네랄</span>
+      </div>
+      <div class="cs-track">
+        <div class="cs-fill" id="cs-stock-fill"></div>
+      </div>
+      <div class="cs-meta">
+        <span id="cs-stock-percent">기준 재고의 100%</span>
+        <span id="cs-stock-time">확인 중</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-cards">
+    <div class="cs-mini">
+      <span>재고 상태</span>
+      <strong id="cs-stock-status">재고 있음</strong>
+    </div>
+    <div class="cs-mini">
+      <span>거래 안내</span>
+      <strong>문의 후 진행</strong>
+    </div>
+  </div>
+
+  <p class="cs-note">
+    ※ 표시된 수량은 직접 설정한 안내용입니다. 정확한 재고는 오픈채팅으로 문의해 주세요.
+  </p>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* 구매 후기 데이터 */
+(() => {
   const purchaseReviews = [
     { image: "review01.jpg", product: "구매 상품 01", review: "구매후기 내용을 입력하세요.", date: "" },
     { image: "review02.jpg", product: "구매 상품 02", review: "구매후기 내용을 입력하세요.", date: "" },
@@ -688,9 +347,6 @@
     { image: "review18.jpg", product: "구매 상품 18", review: "구매후기 내용을 입력하세요.", date: "" },
     { image: "review19.jpg", product: "구매 상품 19", review: "구매후기 내용을 입력하세요.", date: "" },
     { image: "review20.jpg", product: "구매 상품 20", review: "구매후기 내용을 입력하세요.", date: "" }
-
-    // 이후에는 쉼표를 붙이고 계속 추가하면 됩니다.
-    // { image: "review21.jpg", product: "상품명", review: "후기", date: "11.02" }
   ];
 
   const grid = document.getElementById("jyReviewGrid");
@@ -702,7 +358,6 @@
 
   if (!grid || !count || !modal) return;
 
-  // 이미지 경로가 없는 항목은 숨김
   const reviews = purchaseReviews.filter(item =>
     item.image &&
     item.product &&
@@ -714,7 +369,7 @@
   if (reviews.length === 0) {
     const empty = document.createElement("div");
     empty.className = "review-empty";
-    empty.textContent = "아직 등록된 구매후기가 없습니다.\\n후기 사진과 상품 정보를 추가해 주세요.";
+    empty.textContent = "아직 등록된 구매후기가 없습니다.\n후기 사진과 상품 정보를 추가해 주세요.";
     grid.append(empty);
   }
 
@@ -723,7 +378,6 @@
     card.className = "review-card";
     card.tabIndex = 0;
     card.setAttribute("role", "button");
-    card.setAttribute("aria-label", item.product + " 후기 크게 보기");
 
     const photo = document.createElement("div");
     photo.className = "review-photo";
@@ -736,12 +390,6 @@
     img.onerror = () => {
       card.remove();
       count.textContent = grid.querySelectorAll(".review-card").length + " REVIEWS";
-      if (!grid.querySelector(".review-card")) {
-        const empty = document.createElement("div");
-        empty.className = "review-empty";
-        empty.textContent = "등록된 후기 사진을 찾을 수 없습니다.";
-        grid.append(empty);
-      }
     };
 
     photo.append(img);
@@ -762,14 +410,6 @@
     description.textContent = item.review || "구매 감사합니다!";
 
     info.append(tag, product, description);
-
-    if (item.date) {
-      const date = document.createElement("p");
-      date.className = "review-text";
-      date.textContent = item.date;
-      info.append(date);
-    }
-
     card.append(photo, info);
 
     const openModal = () => {
@@ -808,268 +448,29 @@
     if (event.key === "Escape") closeModal();
   });
 })();
-</script>
 
-</body>
-</html>
-
-<!-- 🎃 JAEYUN SHOP HALLOWEEN CLAN STOCK -->
-<section id="clan-stock-widget" hidden>
-  <div class="cs-head">
-    <div>
-      <span class="cs-eyebrow">🎃 JAEYUN SHOP · HALLOWEEN</span>
-      <h3 class="cs-title">클랜미네랄 재고</h3>
-      <p class="cs-subtitle">오늘의 클랜미네랄 재고를 확인하세요.</p>
-    </div>
-    <span class="cs-badge"><i></i> 재고 현황</span>
-  </div>
-
-  <div class="cs-panel">
-    <div class="cs-gem">💎</div>
-    <div class="cs-data">
-      <span class="cs-label">구매 가능 재고</span>
-      <div class="cs-number">
-        <strong id="cs-stock-number">300,000</strong>
-        <span>미네랄</span>
-      </div>
-      <div class="cs-track">
-        <div class="cs-fill" id="cs-stock-fill"></div>
-      </div>
-      <div class="cs-meta">
-        <span id="cs-stock-percent">기준 재고의 100%</span>
-        <span id="cs-stock-time">확인 중</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="cs-cards">
-    <div class="cs-mini">
-      <span>재고 상태</span>
-      <strong id="cs-stock-status">재고 있음</strong>
-    </div>
-    <div class="cs-mini">
-      <span>거래 안내</span>
-      <strong>문의 후 진행</strong>
-    </div>
-  </div>
-
-  <p class="cs-note">
-    ※ 현재 재윤샵 실제 재고입니다. AI가 30분마다 갱신됩니다.
-  </p>
-</section>
-
-<style>
-#clan-stock-widget[hidden] {
-  display: none !important;
-}
-#clan-stock-widget {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin: 18px 0;
-  padding: 18px;
-  overflow: hidden;
-  box-sizing: border-box;
-  border: 1px solid #59354f;
-  border-radius: 18px;
-  color: #fff0e5;
-  background:
-    radial-gradient(ellipse at 100% 0%, #62305255, transparent 48%),
-    linear-gradient(145deg, #24152b, #100c18 78%);
-  box-shadow: 0 10px 28px #0004;
-  font-family: inherit;
-  line-height: 1.5;
-}
-#clan-stock-widget *,
-#clan-stock-widget *::before,
-#clan-stock-widget *::after {
-  box-sizing: border-box;
-}
-#clan-stock-widget .cs-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-}
-#clan-stock-widget .cs-eyebrow {
-  color: #ffae63;
-  font-size: 9px;
-  font-weight: 850;
-  letter-spacing: 1px;
-}
-#clan-stock-widget .cs-title {
-  margin: 7px 0 5px;
-  color: #fff1e4;
-  font-size: 20px;
-  line-height: 1.4;
-  font-weight: 850;
-}
-#clan-stock-widget .cs-subtitle {
-  margin: 0;
-  color: #b9a5c2;
-  font-size: 11px;
-}
-#clan-stock-widget .cs-badge {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 9px;
-  border: 1px solid #65422c;
-  border-radius: 30px;
-  background: #302018;
-  color: #ffc078;
-  font-size: 10px;
-  white-space: nowrap;
-}
-#clan-stock-widget .cs-badge i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ff9c42;
-  box-shadow: 0 0 8px #ff9c42;
-}
-#clan-stock-widget .cs-panel {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-  margin-top: 18px;
-  padding: 14px;
-  border: 1px solid #49324f;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #2b1b35, #1b1425);
-}
-#clan-stock-widget .cs-gem {
-  display: grid;
-  flex: 0 0 43px;
-  place-items: center;
-  width: 43px;
-  height: 43px;
-  border-radius: 13px;
-  background: linear-gradient(135deg, #ff9d3d, #e45b2c);
-  box-shadow: 0 5px 16px #ff862533;
-  font-size: 22px;
-}
-#clan-stock-widget .cs-data {
-  flex: 1;
-  min-width: 0;
-}
-#clan-stock-widget .cs-label {
-  color: #b9a5c2;
-  font-size: 10px;
-}
-#clan-stock-widget .cs-number {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px;
-  margin: 5px 0 12px;
-}
-#clan-stock-widget .cs-number strong {
-  color: #fff1e4;
-  font-size: clamp(20px, 5vw, 29px);
-  line-height: 1.35;
-  letter-spacing: -.7px;
-  overflow-wrap: anywhere;
-}
-#clan-stock-widget .cs-number span {
-  color: #ffae63;
-  font-size: 11px;
-  font-weight: 750;
-}
-#clan-stock-widget .cs-track {
-  height: 6px;
-  overflow: hidden;
-  border-radius: 20px;
-  background: #49334d;
-}
-#clan-stock-widget .cs-fill {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #f36a2f, #ffbd56, #b37aff);
-  transition: width .3s ease;
-}
-#clan-stock-widget .cs-meta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 5px;
-  margin-top: 8px;
-  color: #a991b3;
-  font-size: 9px;
-}
-#clan-stock-widget .cs-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
-  margin-top: 10px;
-}
-#clan-stock-widget .cs-mini {
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid #49324f;
-  border-radius: 12px;
-  background: #211529;
-}
-#clan-stock-widget .cs-mini span {
-  display: block;
-  margin-bottom: 5px;
-  color: #b9a5c2;
-  font-size: 10px;
-}
-#clan-stock-widget .cs-mini strong {
-  display: block;
-  color: #f8eaff;
-  font-size: 12px;
-  overflow-wrap: anywhere;
-}
-#clan-stock-widget .cs-note {
-  margin: 12px 0 0;
-  color: #a18bab;
-  font-size: 10px;
-  line-height: 1.7;
-}
-@media (max-width: 360px) {
-  #clan-stock-widget { padding: 13px; }
-  #clan-stock-widget .cs-panel { gap: 9px; padding: 10px; }
-  #clan-stock-widget .cs-gem {
-    flex-basis: 36px;
-    width: 36px;
-    height: 36px;
-  }
-}
-</style>
-
-<script>
+/* 클랜 재고 표시 */
 (() => {
   const widget = document.getElementById("clan-stock-widget");
   if (!widget || widget.dataset.ready) return;
   widget.dataset.ready = "true";
 
-  // 재고 수량 수정
   const stock = 300000;
   const maxStock = 300000;
-
   const $ = selector => widget.querySelector(selector);
+
   const safeStock = Math.max(0, stock);
   const ratio = Math.max(0, Math.min(100, safeStock / maxStock * 100));
 
-  $("#cs-stock-number").textContent =
-    safeStock.toLocaleString("ko-KR");
+  $("#cs-stock-number").textContent = safeStock.toLocaleString("ko-KR");
   $("#cs-stock-fill").style.width = ratio + "%";
-  $("#cs-stock-percent").textContent =
-    "기준 재고의 " + Math.round(ratio) + "%";
+  $("#cs-stock-percent").textContent = "기준 재고의 " + Math.round(ratio) + "%";
 
   const status = $("#cs-stock-status");
   status.textContent = safeStock <= 0 ? "재고 소진" :
-    safeStock < 2350132 ? "재고 부족" : "재고 있음";
-  status.style.color = safeStock <= 0 ? "#ff7777" :
-    safeStock < 2350132 ? "#ffc078" : "#b8f58b";
+    safeStock < maxStock * 0.2 ? "재고 부족" : "재고 있음";
 
   function syncVisibility() {
-    // 가격표 화면에서 '클랜 미네랄' 카테고리가 선택된 경우에만 표시
     const page = document.getElementById("pricePage");
     const clanSelected = [...document.querySelectorAll(".filter-chip")]
       .some(button =>
@@ -1080,7 +481,6 @@
     widget.hidden = !(page && page.classList.contains("active") && clanSelected);
   }
 
-  // 가격표 페이지 안에 위젯을 배치
   const pricePage = document.getElementById("pricePage");
   if (pricePage) {
     const notice = pricePage.querySelector(".notice-inline");
@@ -1099,6 +499,7 @@
       attributeFilter: ["class"]
     });
   }
+
   document.querySelectorAll(".filter-chip").forEach(button => {
     observer.observe(button, {
       attributes: true,
@@ -1115,3 +516,871 @@
   syncVisibility();
 })();
 </script>
+
+<script src="script.js"></script>
+
+<style>
+/* JAEYUN SHOP CHARACTER THEME */
+
+:root {
+  --bg: #f5f9fc !important;
+  --white: #ffffff !important;
+  --ink: #526779 !important;
+  --muted: #91a4b3 !important;
+  --line: #dce8ef !important;
+  --blue: #83bfd4 !important;
+  --blue-light: #eaf5fa !important;
+  --jy-pink: #e8a5bb !important;
+  --jy-sky: #a8d8e8 !important;
+  --jy-shadow: 0 8px 25px rgba(111,157,184,.12) !important;
+}
+
+body {
+  background: #edf4f8 !important;
+  color: #526779 !important;
+}
+
+.app {
+  background: #f5f9fc !important;
+  color: #526779 !important;
+}
+
+.header,
+.bottom-nav {
+  background: rgba(255,255,255,.97) !important;
+  border-color: #dce8ef !important;
+}
+
+.brand-copy strong,
+.hero h1,
+.section-heading h2,
+.page-heading h1,
+.modal h2,
+.order-cta h2 {
+  color: #526779 !important;
+}
+
+.brand-logo {
+  background: linear-gradient(135deg,#e8a5bb,#a8d8e8) !important;
+  color: white !important;
+  border-color: #dce8ef !important;
+}
+
+.brand-copy small,
+.hero > p,
+.page-heading p,
+.category-card small,
+.product-description {
+  color: #91a4b3 !important;
+}
+
+.icon-btn,
+.primary-btn,
+.dark-btn,
+.header-chat {
+  background: linear-gradient(135deg,#e8a5bb,#91cce0) !important;
+  color: white !important;
+  border-color: #dce8ef !important;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 90% 5%,#d8edf5,transparent 38%),
+    radial-gradient(circle at 5% 95%,#f7e6ed,transparent 40%),
+    linear-gradient(145deg,#fff,#edf6fa) !important;
+  border-color: #dce8ef !important;
+}
+
+.hero h1 span {
+  color: #d98fab !important;
+}
+
+.eyebrow,
+.product-price,
+.product-category,
+.live-dot {
+  color: #83bfd4 !important;
+}
+
+.live-dot {
+  background: #e8a5bb !important;
+  box-shadow: 0 0 0 4px #e8a5bb30 !important;
+}
+
+.category-card,
+.product-card,
+.cart-item,
+.summary-card,
+.step-card {
+  background: #fff !important;
+  border-color: #dce8ef !important;
+  color: #526779 !important;
+}
+
+.category-icon,
+.cart-item-icon,
+.step-card > span {
+  background: #eaf5fa !important;
+  color: #83bfd4 !important;
+}
+
+.category-card:hover,
+.product-card:hover {
+  border-color: #a8d8e8 !important;
+}
+
+.promo-card {
+  background: linear-gradient(135deg,#f7e8ef,#e4f3f9) !important;
+  border-color: #dce8ef !important;
+}
+
+.promo-card h2 {
+  color: #526779 !important;
+}
+
+.promo-card p {
+  color: #8299a8 !important;
+}
+
+.promo-mark {
+  color: #d8eaf1 !important;
+}
+
+.search-box,
+.filter-chip {
+  background: #fff !important;
+  border-color: #dce8ef !important;
+}
+
+.search-box input {
+  color: #526779 !important;
+}
+
+.filter-chip {
+  color: #8299a8 !important;
+}
+
+.filter-chip.selected {
+  background: linear-gradient(135deg,#a8d8e8,#83bfd4) !important;
+  border-color: #83bfd4 !important;
+  color: white !important;
+}
+
+.filter-chip[data-filter="aram"] {
+  background: #f9edf3 !important;
+  color: #c77f9b !important;
+  border-color: #edc7d7 !important;
+}
+
+.filter-chip[data-filter="aram"].selected {
+  background: linear-gradient(135deg,#e8a5bb,#a8d8e8) !important;
+  color: white !important;
+}
+
+.product-category {
+  background: #eaf5fa !important;
+}
+
+.add-cart-btn {
+  background: #edf7fa !important;
+  color: #6daac2 !important;
+  border-color: #d5e9f0 !important;
+}
+
+.notice-inline {
+  background: #edf6fa !important;
+  border-color: #dce8ef !important;
+}
+
+.notice-inline strong {
+  color: #6daac2 !important;
+}
+
+.summary-line strong,
+.cart-item-right strong {
+  color: #6daac2 !important;
+}
+
+.remove-item {
+  color: #d18da9 !important;
+}
+
+.order-cta {
+  background: linear-gradient(145deg,#fff,#edf6fa) !important;
+}
+
+.footer {
+  border-color: #dce8ef !important;
+}
+
+.footer-brand {
+  color: #83bfd4 !important;
+}
+
+.nav-item {
+  color: #a5b5c0 !important;
+}
+
+.nav-item.active {
+  color: #6daac2 !important;
+}
+
+.cart-count,
+.nav-cart i {
+  background: #e8a5bb !important;
+  color: white !important;
+}
+
+.modal {
+  background: #fff !important;
+  border-color: #dce8ef !important;
+}
+
+.modal-close {
+  background: #eaf5fa !important;
+  color: #6daac2 !important;
+}
+
+.notice-box {
+  background: #edf6fa !important;
+}
+
+.toast {
+  background: #526779 !important;
+  border-color: #a8d8e8 !important;
+}
+
+#jy-review-section {
+  background: linear-gradient(145deg,#fff,#edf6fa) !important;
+  border-color: #dce8ef !important;
+}
+
+#jy-review-section h3,
+#jy-review-section .review-product {
+  color: #526779 !important;
+}
+
+#jy-review-section .review-eyebrow,
+#jy-review-section .review-tag {
+  color: #83bfd4 !important;
+}
+
+#jy-review-section .review-card {
+  background: #fff !important;
+  border-color: #dce8ef !important;
+}
+
+#clan-stock-widget {
+  background: linear-gradient(145deg,#fff,#edf6fa) !important;
+  border-color: #dce8ef !important;
+  color: #526779 !important;
+}
+
+#clan-stock-widget .cs-fill {
+  background: linear-gradient(90deg,#e8a5bb,#a8d8e8) !important;
+}
+
+/* ==================================
+   JAEYUN SHOP - THEME PATCH
+   후기 / 재고 / 가격표 테두리
+================================== */
+
+/* 1. 구매후기 영역 */
+#jy-review-section {
+  background: linear-gradient(145deg, #ffffff, #f0f8fc) !important;
+  border: 1px solid #d5e6ef !important;
+  border-radius: 20px !important;
+  padding: 22px 18px !important;
+  color: #526779 !important;
+}
+
+#jy-review-section .review-heading {
+  border-color: #d5e6ef !important;
+}
+
+#jy-review-section h3 {
+  color: #526779 !important;
+}
+
+#jy-review-section .review-subtitle {
+  color: #8299a9 !important;
+}
+
+#jy-review-section .review-eyebrow {
+  color: #83bfd4 !important;
+}
+
+#jy-review-section .review-count {
+  color: #83bfd4 !important;
+  background: #e8f4f9 !important;
+  border: 1px solid #d2e7f0 !important;
+  border-radius: 30px !important;
+  padding: 7px 11px !important;
+}
+
+#jy-review-section .review-card {
+  background: #ffffff !important;
+  border: 1px solid #d5e6ef !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 16px rgba(107, 151, 177, 0.09) !important;
+}
+
+#jy-review-section .review-info {
+  background: #ffffff !important;
+}
+
+#jy-review-section .review-product {
+  color: #526779 !important;
+}
+
+#jy-review-section .review-text {
+  color: #8299a9 !important;
+}
+
+#jy-review-section .review-tag {
+  color: #c77f9b !important;
+  background: #fbedf3 !important;
+  border-radius: 20px !important;
+  padding: 4px 9px !important;
+}
+
+#jy-review-section .review-empty {
+  color: #8299a9 !important;
+  background: #f3f9fc !important;
+  border: 1px dashed #c8dfe9 !important;
+  border-radius: 14px !important;
+  padding: 22px !important;
+  white-space: pre-line !important;
+}
+
+/* 2. 클랜 미네랄 재고 위젯 */
+#clan-stock-widget {
+  background: linear-gradient(145deg, #ffffff, #eff8fc) !important;
+  color: #526779 !important;
+  border: 1px solid #cfe3ed !important;
+  border-radius: 20px !important;
+  padding: 20px !important;
+  box-shadow: 0 7px 22px rgba(107, 151, 177, 0.10) !important;
+}
+
+#clan-stock-widget .cs-title {
+  color: #526779 !important;
+}
+
+#clan-stock-widget .cs-subtitle,
+#clan-stock-widget .cs-label,
+#clan-stock-widget .cs-meta,
+#clan-stock-widget .cs-note {
+  color: #8299a9 !important;
+}
+
+#clan-stock-widget .cs-eyebrow {
+  color: #83bfd4 !important;
+}
+
+#clan-stock-widget .cs-badge {
+  color: #6daac2 !important;
+  background: #e6f4f9 !important;
+  border: 1px solid #cce5ef !important;
+  border-radius: 30px !important;
+}
+
+#clan-stock-widget .cs-badge i {
+  background: #e8a5bb !important;
+}
+
+#clan-stock-widget .cs-panel {
+  background: #ffffff !important;
+  border: 1px solid #d5e6ef !important;
+  border-radius: 16px !important;
+}
+
+#clan-stock-widget .cs-number strong {
+  color: #6daac2 !important;
+}
+
+#clan-stock-widget .cs-number span {
+  color: #8299a9 !important;
+}
+
+#clan-stock-widget .cs-track {
+  background: #e5eff4 !important;
+}
+
+#clan-stock-widget .cs-fill {
+  background: linear-gradient(90deg, #e8a5bb, #91cce0) !important;
+}
+
+#clan-stock-widget .cs-mini {
+  background: #ffffff !important;
+  border: 1px solid #d5e6ef !important;
+  border-radius: 13px !important;
+}
+
+#clan-stock-widget .cs-mini span {
+  color: #8299a9 !important;
+}
+
+#clan-stock-widget .cs-mini strong {
+  color: #526779 !important;
+}
+
+#clan-stock-widget .cs-note {
+  border-top: 1px solid #dceaf0 !important;
+}
+
+/* 3. 가격표 상품 카드 테두리 가시성 */
+#productList .product-card,
+#homeProducts .product-card {
+  border: 1.5px solid #c8dce7 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 4px 13px rgba(90, 135, 160, 0.08) !important;
+  background: #ffffff !important;
+  transition: border-color .2s ease, box-shadow .2s ease !important;
+}
+
+#productList .product-card:hover,
+#homeProducts .product-card:hover {
+  border-color: #83bfd4 !important;
+  box-shadow: 0 7px 20px rgba(90, 150, 180, 0.15) !important;
+}
+
+/* 상품 내부 구분선 */
+#productList .product-card > *,
+#homeProducts .product-card > * {
+  border-color: #e0ebf1 !important;
+}
+
+/* 검색 및 카테고리 버튼 테두리 */
+.search-box {
+  border: 1px solid #c8dce7 !important;
+  box-shadow: 0 3px 10px rgba(90, 135, 160, 0.05) !important;
+}
+
+.filter-chip {
+  border: 1px solid #d0e1ea !important;
+}
+
+.filter-chip.selected {
+  border-color: #83bfd4 !important;
+}
+
+/* 4. 모바일 화면 여백 */
+@media (max-width: 600px) {
+  #jy-review-section {
+    margin-top: 20px !important;
+    padding: 18px 14px !important;
+  }
+
+  #clan-stock-widget {
+    padding: 16px !important;
+  }
+
+  #productList .product-card {
+    border-width: 1.5px !important;
+  }
+}
+
+/* =========================================
+   JAEYUN SHOP — CUTE MODERN GLASS UI
+   Pearl / Sky Blue / Lavender / Pink
+========================================= */
+
+:root {
+  --jy-bg: #f3f7fc;
+  --jy-white: #ffffff;
+  --jy-blue: #91cce3;
+  --jy-blue-dark: #6daac8;
+  --jy-lavender: #c4b8e9;
+  --jy-pink: #edb6ce;
+  --jy-text: #52677e;
+  --jy-muted: #99aabc;
+  --jy-border: #e0eaf3;
+  --jy-shadow: 0 10px 30px rgba(115, 153, 190, .10);
+}
+
+/* 전체 배경 */
+body {
+  background:
+    radial-gradient(ellipse at 10% 0%, #fcecf4 0%, transparent 35%),
+    radial-gradient(ellipse at 95% 15%, #e4f4fc 0%, transparent 38%),
+    #f3f7fc !important;
+  color: var(--jy-text) !important;
+}
+
+/* 앱 전체 */
+.app {
+  background: transparent !important;
+}
+
+/* 공통 카드 */
+.category-card,
+.product-card,
+.cart-item,
+.summary-card,
+.step-card,
+.promo-card,
+.notice-inline {
+  border: 1px solid var(--jy-border) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--jy-shadow) !important;
+}
+
+/* 헤더 */
+.header {
+  background: rgba(255,255,255,.82) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-bottom: 1px solid rgba(218,231,243,.8) !important;
+}
+
+.brand-logo {
+  border-radius: 15px !important;
+  background: linear-gradient(135deg, #edb6ce, #a8d8ec) !important;
+  box-shadow: 0 5px 14px rgba(180,153,205,.2) !important;
+}
+
+.header-chat,
+.primary-btn {
+  background: linear-gradient(135deg, #91cce3, #b9b0e5) !important;
+  border: none !important;
+  border-radius: 15px !important;
+  box-shadow: 0 6px 15px rgba(130,177,215,.2) !important;
+}
+
+/* 메인 배너 */
+.hero {
+  background: linear-gradient(145deg, #ffffff, #edf6fc 65%, #f9edf5) !important;
+  border: 1px solid #e1eaf4 !important;
+  border-radius: 28px !important;
+  box-shadow: 0 12px 35px rgba(125,159,190,.12) !important;
+  overflow: hidden !important;
+}
+
+.hero-art {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
+.hero h1 span {
+  color: #d995b7 !important;
+}
+
+/* 섹션 제목 */
+.section-heading h2,
+.page-heading h1 {
+  color: #52677e !important;
+  letter-spacing: -.7px !important;
+}
+
+/* 카테고리 */
+.category-card {
+  background: rgba(255,255,255,.92) !important;
+  border-radius: 21px !important;
+  transition: transform .2s ease, box-shadow .2s ease !important;
+}
+
+.category-card:active {
+  transform: scale(.97) !important;
+}
+
+.category-icon {
+  width: 45px !important;
+  height: 45px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg,#e7f5fb,#f8eaf2) !important;
+  color: #80b9d4 !important;
+}
+
+/* 가격표 카드 */
+#productList .product-card,
+#homeProducts .product-card {
+  background: rgba(255,255,255,.96) !important;
+  border: 1.5px solid #d7e5f0 !important;
+  border-radius: 23px !important;
+  box-shadow: 0 7px 20px rgba(111,153,188,.09) !important;
+  overflow: hidden !important;
+  transition: transform .2s ease, border-color .2s ease,
+              box-shadow .2s ease !important;
+}
+
+#productList .product-card:active,
+#homeProducts .product-card:active {
+  transform: scale(.985) !important;
+}
+
+#productList .product-card:hover,
+#homeProducts .product-card:hover {
+  border-color: #a9d2e6 !important;
+  box-shadow: 0 12px 25px rgba(111,153,188,.15) !important;
+}
+
+.add-cart-btn {
+  background: linear-gradient(135deg,#e9f5fb,#f8edf4) !important;
+  color: #6b9fba !important;
+  border: 1px solid #dceaf2 !important;
+  border-radius: 13px !important;
+}
+
+/* 검색창 */
+.search-box {
+  background: #fff !important;
+  border: 1px solid #dce8f1 !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 15px rgba(111,153,188,.06) !important;
+}
+
+/* 필터 버튼 */
+.filter-chip {
+  border-radius: 30px !important;
+  border: 1px solid #dce7f0 !important;
+  background: #fff !important;
+  transition: all .2s ease !important;
+}
+
+.filter-chip.selected {
+  background: linear-gradient(120deg,#91cce3,#bdb3e7) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 5px 13px rgba(145,184,220,.2) !important;
+}
+
+/* 프로모션 */
+.promo-card {
+  background: linear-gradient(135deg,#f9eaf1,#e8f4fb 75%) !important;
+  border: 1px solid #e5ddea !important;
+  border-radius: 26px !important;
+  overflow: hidden !important;
+}
+
+/* =========================================
+   CLAN STOCK WIDGET
+========================================= */
+
+#clan-stock-widget {
+  background: linear-gradient(145deg,#ffffff 5%,#f1f8fc 65%,#f9f0f6) !important;
+  border: 1px solid #dce8f2 !important;
+  border-radius: 26px !important;
+  padding: 22px 19px !important;
+  box-shadow: 0 12px 30px rgba(111,153,188,.10) !important;
+  overflow: hidden !important;
+}
+
+#clan-stock-widget .cs-head {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-bottom: 20px !important;
+}
+
+#clan-stock-widget .cs-title {
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.8px !important;
+  color: #52677e !important;
+}
+
+#clan-stock-widget .cs-eyebrow {
+  color: #87bad5 !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+}
+
+#clan-stock-widget .cs-badge {
+  background: #edf7fb !important;
+  color: #75abc5 !important;
+  border: 1px solid #dcebf3 !important;
+  border-radius: 30px !important;
+  padding: 8px 12px !important;
+  white-space: nowrap !important;
+}
+
+#clan-stock-widget .cs-panel {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  background: rgba(255,255,255,.88) !important;
+  border: 1px solid #dce8f2 !important;
+  border-radius: 21px !important;
+  padding: 19px !important;
+  box-shadow: 0 5px 15px rgba(111,153,188,.06) !important;
+}
+
+#clan-stock-widget .cs-gem {
+  width: 49px !important;
+  height: 49px !important;
+  flex-shrink: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  background: linear-gradient(145deg,#e7f5fc,#f8eaf3) !important;
+  border-radius: 17px !important;
+  font-size: 24px !important;
+}
+
+#clan-stock-widget .cs-data {
+  min-width: 0 !important;
+  flex: 1 !important;
+}
+
+#clan-stock-widget .cs-number strong {
+  font-size: 27px !important;
+  font-weight: 850 !important;
+  letter-spacing: -1px !important;
+  color: #6daac8 !important;
+}
+
+#clan-stock-widget .cs-track {
+  height: 9px !important;
+  background: #eaf0f6 !important;
+  border-radius: 30px !important;
+  overflow: hidden !important;
+  margin-top: 12px !important;
+}
+
+#clan-stock-widget .cs-fill {
+  height: 100% !important;
+  border-radius: 30px !important;
+  background: linear-gradient(90deg,#edb6ce,#91cce3,#bdb3e7) !important;
+}
+
+#clan-stock-widget .cs-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 5px !important;
+  margin-top: 9px !important;
+  color: #9aabba !important;
+  font-size: 11px !important;
+}
+
+#clan-stock-widget .cs-cards {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  margin-top: 12px !important;
+}
+
+#clan-stock-widget .cs-mini {
+  background: rgba(255,255,255,.9) !important;
+  border: 1px solid #dce8f2 !important;
+  border-radius: 17px !important;
+  padding: 14px !important;
+}
+
+#clan-stock-widget .cs-mini span {
+  display: block !important;
+  color: #9aabba !important;
+  font-size: 12px !important;
+  margin-bottom: 7px !important;
+}
+
+#clan-stock-widget .cs-mini strong {
+  color: #60788d !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+}
+
+#clan-stock-widget .cs-note {
+  color: #91a4b5 !important;
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+  border-top: 1px solid #e3edf3 !important;
+  padding-top: 13px !important;
+  margin-top: 16px !important;
+}
+
+/* =========================================
+   REVIEWS
+========================================= */
+
+#jy-review-section {
+  background: linear-gradient(145deg,#ffffff,#f2f8fc) !important;
+  border: 1px solid #dce8f2 !important;
+  border-radius: 25px !important;
+  padding: 22px !important;
+  box-shadow: var(--jy-shadow) !important;
+}
+
+#jy-review-section .review-card {
+  background: #fff !important;
+  border: 1px solid #dce8f2 !important;
+  border-radius: 19px !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 15px rgba(111,153,188,.08) !important;
+}
+
+#jy-review-section .review-photo {
+  overflow: hidden !important;
+  border-radius: 15px !important;
+}
+
+#jy-review-section .review-tag {
+  background: #f9edf4 !important;
+  color: #ce91ae !important;
+  border-radius: 30px !important;
+  padding: 5px 10px !important;
+}
+
+#jy-review-section .review-empty {
+  background: #f4f9fc !important;
+  border: 1px dashed #cbdfea !important;
+  border-radius: 18px !important;
+  padding: 24px 18px !important;
+  color: #8ca3b5 !important;
+}
+
+/* 하단 네비게이션 */
+.bottom-nav {
+  background: rgba(255,255,255,.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid #e0eaf2 !important;
+  border-radius: 22px 22px 0 0 !important;
+  box-shadow: 0 -7px 25px rgba(111,153,188,.08) !important;
+}
+
+.nav-item.active {
+  color: #75b4d0 !important;
+}
+
+/* 버튼 전체 */
+button,
+.primary-btn,
+.dark-btn,
+.header-chat {
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+button:active {
+  transform: scale(.97) !important;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 600px) {
+  #clan-stock-widget {
+    padding: 18px 15px !important;
+    border-radius: 23px !important;
+  }
+
+  #clan-stock-widget .cs-panel {
+    padding: 15px !important;
+    border-radius: 18px !important;
+  }
+
+  #jy-review-section {
+    padding: 18px 15px !important;
+    border-radius: 22px !important;
+  }
+
+  #productList .product-card {
+    border-radius: 20px !important;
+  }
+}
+
+</style>
+
+</body>
+</html>
