@@ -1,9 +1,8 @@
-
 "use strict";
 
 /* =========================================
    JAEYUN SHOP
-   ========================================= */
+========================================= */
 
 const CHAT_URL = "https://open.kakao.com/o/s6kZv0Ni";
 const CART_KEY = "jaeyunShopCartV2";
@@ -120,9 +119,6 @@ const products = [
     price: 4000,
     image: "500만클미.png"
   },
-
-  /* 차원탐정 아람 — 와처 코인 */
-
   {
     id: "aram1000",
     name: "와처 코인 1,000개",
@@ -169,7 +165,7 @@ const $ = (selector, parent = document) =>
 const $$ = (selector, parent = document) =>
   Array.from(parent.querySelectorAll(selector));
 
-const money = (amount) =>
+const money = amount =>
   Number(amount).toLocaleString("ko-KR") + "원";
 
 function safeStorageGet(key) {
@@ -270,6 +266,11 @@ function createProductCard(product) {
 
   const imageArea = document.createElement("div");
   imageArea.className = "product-image";
+
+  const discountBadge = document.createElement("span");
+  discountBadge.className = "product-discount-badge";
+  discountBadge.textContent = "✦ 할인중";
+  imageArea.appendChild(discountBadge);
 
   const fallback = document.createElement("div");
   fallback.className = "product-image-fallback";
@@ -441,7 +442,8 @@ const pageMap = {
   home: "homePage",
   price: "pricePage",
   cart: "cartPage",
-  order: "orderPage"
+  order: "orderPage",
+  rules: "rulesPage"
 };
 
 function showPage(pageName) {
@@ -450,7 +452,9 @@ function showPage(pageName) {
 
   Object.entries(pageMap).forEach(([name, id]) => {
     const page = document.getElementById(id);
-    if (page) page.classList.toggle("active", name === pageName);
+    if (page) {
+      page.classList.toggle("active", name === pageName);
+    }
   });
 
   $$(".nav-item").forEach(button => {
@@ -680,6 +684,7 @@ function setupNotice() {
       NOTICE_KEY,
       String(Date.now() + 24 * 60 * 60 * 1000)
     );
+
     modal.hidden = true;
   });
 
@@ -688,16 +693,72 @@ function setupNotice() {
   });
 }
 
-/* 10. 오픈채팅 링크 */
+/* 10. 규칙 확인 후 오픈채팅 이동 */
 
 function setupChatLinks() {
-  $$('a[href*="open.kakao.com"]').forEach(link => {
-    link.addEventListener("click", event => {
-      if (link.href.includes("여기에링크입력")) {
-        event.preventDefault();
-        showToast("HTML에서 실제 오픈채팅 링크를 입력해 주세요.");
-      }
-    });
+  const popup = $("#jyRuleCheck");
+  const yesButton = $("#jyRuleYes");
+  const noButton = $("#jyRuleNo");
+
+  if (!popup || !yesButton || !noButton) {
+    console.warn("규칙 확인 팝업 요소를 찾을 수 없습니다.");
+    return;
+  }
+
+  // 페이지 안의 모든 카카오 오픈채팅 링크 감지
+  document.addEventListener("click", event => {
+    const target = event.target;
+
+    if (!(target instanceof Element)) return;
+
+    const link = target.closest('a[href*="open.kakao.com"]');
+    if (!link) return;
+
+    event.preventDefault();
+
+    popup.hidden = false;
+    document.body.style.overflow = "hidden";
+    yesButton.focus();
+  });
+
+  // 규칙을 읽었다고 확인한 경우
+  yesButton.addEventListener("click", () => {
+    popup.hidden = true;
+    document.body.style.overflow = "";
+
+    const chatWindow = window.open(
+      CHAT_URL,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    if (!chatWindow) {
+      showToast("새 창이 차단되었어요. 팝업 허용 후 다시 시도해 주세요.");
+    }
+  });
+
+  // 아직 읽지 않은 경우 규칙 페이지로 이동
+  noButton.addEventListener("click", () => {
+    popup.hidden = true;
+    document.body.style.overflow = "";
+
+    showPage("rules");
+  });
+
+  // 팝업 바깥을 누르면 닫기
+  popup.addEventListener("click", event => {
+    if (event.target === popup) {
+      popup.hidden = true;
+      document.body.style.overflow = "";
+    }
+  });
+
+  // ESC 키로 닫기
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !popup.hidden) {
+      popup.hidden = true;
+      document.body.style.overflow = "";
+    }
   });
 }
 

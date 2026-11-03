@@ -8,6 +8,104 @@
   <meta name="description" content="재윤샵 - 리부트, 경험치, 미네랄 전문 게임 서비스">
   <title>재윤샵 | JAEYUN SHOP</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+/* 재윤샵 규칙 확인 팝업 강제 스타일 */
+#jyRuleCheck[hidden] {
+  display: none !important;
+}
+
+#jyRuleCheck {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(35, 45, 60, .55) !important;
+  backdrop-filter: blur(9px) !important;
+  -webkit-backdrop-filter: blur(9px) !important;
+}
+
+#jyRuleCheck .jy-rule-check-card {
+  display: block !important;
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: auto !important;
+  padding: 30px 23px 24px !important;
+  box-sizing: border-box !important;
+
+  border: 1px solid #e1eaf3 !important;
+  border-radius: 25px !important;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f1f8fc 65%,
+    #fbedf4
+  ) !important;
+
+  box-shadow: 0 25px 70px rgba(48, 76, 110, .22) !important;
+  text-align: center !important;
+}
+
+#jyRuleCheck .jy-rule-check-label {
+  display: block !important;
+  color: #83bfd4 !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1.5px !important;
+}
+
+#jyRuleCheck h2 {
+  margin: 17px 0 10px !important;
+  color: #52677e !important;
+  font-size: 25px !important;
+  font-weight: 900 !important;
+}
+
+#jyRuleCheck p {
+  margin: 0 0 23px !important;
+  color: #91a4b5 !important;
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+}
+
+#jyRuleCheck p strong {
+  color: #d995b7 !important;
+}
+
+#jyRuleCheck button {
+  display: block !important;
+  width: 100% !important;
+  min-height: 47px !important;
+  padding: 12px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+}
+
+#jyRuleYes {
+  color: white !important;
+  background: linear-gradient(110deg, #91cce3, #c2b5e8) !important;
+}
+
+#jyRuleNo {
+  margin-top: 10px !important;
+  color: #8297a9 !important;
+  background: #edf3f8 !important;
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -210,7 +308,88 @@
            target="_blank" rel="noopener noreferrer">오픈채팅 바로가기 ↗</a>
       </div>
     </section>
+<!-- 재윤샵 규칙 페이지 -->
+<section class="page" id="rulesPage">
+  <div class="page-heading">
+    <span class="eyebrow">JAEYUN SHOP · TERMS</span>
+    <h1>재윤샵 규칙</h1>
+    <p>서비스 이용 전 아래 내용을 반드시 확인해 주세요.</p>
+  </div>
 
+  <div class="jy-rules-panel">
+    <h2>JAEYUN SHOP 이용 규정</h2>
+    <p class="jy-rules-intro">
+      구매 전 반드시 아래 규정을 확인해 주시기 바랍니다.
+    </p>
+
+    <div class="jy-rule-item">
+      <strong>01. 구매 및 문의 안내</strong>
+      <p>
+        상품을 구매하거나 문의하기 전에 가격표와 상품 설명을
+        충분히 확인해 주세요. 상품 내용이 불분명한 경우
+        결제 전에 오픈채팅으로 문의해 주시기 바랍니다.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>02. 주문 진행</strong>
+      <p>
+        주문 전 닉네임, 상품명, 수량 등 주문 정보를 정확하게
+        작성해 주세요. 정보가 잘못 전달되어 발생하는 문제는
+        확인 및 처리에 시간이 걸릴 수 있습니다.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>03. 결제 및 작업 안내</strong>
+      <p>
+        결제 및 작업 진행 방식은 상담을 통해 안내합니다.
+        안내받은 내용을 확인한 후 진행 여부를 결정해 주세요.
+        별도 안내 없이 임의로 진행하지 않습니다.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>04. 작업 시간 및 지연</strong>
+      <p>
+        작업 시간은 상품 종류와 주문량에 따라 달라질 수 있습니다.
+        예상보다 작업이 지연되는 경우 오픈채팅을 통해 안내해 드립니다.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>05. 환불 및 취소</strong>
+      <p>
+        환불 및 취소 가능 여부는 작업 진행 상태와 주문 내용을
+        확인한 뒤 안내합니다. 주문 전에 상품 내용과 조건을
+        충분히 확인해 주세요.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>06. 이용자 확인 사항</strong>
+      <p>
+        계정 정보 및 주문 정보는 정확하게 전달해 주세요.
+        이용자의 부정확한 정보 제공으로 발생한 문제는
+        상황 확인 후 별도로 안내합니다.
+      </p>
+    </div>
+
+    <div class="jy-rule-item">
+      <strong>07. 문의 및 고객 지원</strong>
+      <p>
+        주문 관련 문의와 작업 진행 상황은 재윤샵 오픈채팅을
+        이용해 주세요. 문의 시 주문 상품과 닉네임을 함께
+        알려주시면 더욱 정확한 안내가 가능합니다.
+      </p>
+    </div>
+
+    <div class="jy-rules-footer">
+      JAEYUN SHOP<br>
+      위 규정을 확인한 후 서비스를 이용해 주세요.
+    </div>
+  </div>
+</section>
     <!-- 구매 후기 -->
     <section id="jy-review-section">
       <div class="review-heading">
@@ -239,6 +418,10 @@
       <small>장바구니</small>
     </button>
     <button class="nav-item" data-page="order"><span class="nav-icon">☷</span><small>주문 안내</small></button>
+    <button class="nav-item" data-page="rules">
+  <span class="nav-icon">☷</span>
+  <small>규칙</small>
+</button>
   </nav>
 </div>
 
@@ -265,6 +448,31 @@
 </div>
 
 <!-- 구매 후기 사진 확대 모달 -->
+ <!-- 재윤샵 규칙 정독 확인 팝업 -->
+<div class="jy-rule-check" id="jyRuleCheck" hidden>
+  <div class="jy-rule-check-card">
+
+    <span class="jy-rule-check-label">
+      JAEYUN SHOP
+    </span>
+
+    <h2>잠깐!</h2>
+
+    <p>
+      재윤샵 규칙을<br>
+      <strong>모두 정독하셨나요?</strong>
+    </p>
+
+    <button type="button" id="jyRuleYes">
+      예, 정독하고 문의합니다
+    </button>
+
+    <button type="button" id="jyRuleNo">
+      아니요, 읽지 않았습니다
+    </button>
+
+  </div>
+</div>
 <div id="jy-review-modal">
   <div class="review-modal-box">
     <img class="review-modal-image" id="jyReviewModalImage" alt="구매후기 사진">
@@ -326,29 +534,6 @@
 <script>
 /* 구매 후기 데이터 */
 (() => {
-  const purchaseReviews = [
-    { image: "review01.jpg", product: "구매 상품 01", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review02.jpg", product: "구매 상품 02", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review03.jpg", product: "구매 상품 03", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review04.jpg", product: "구매 상품 04", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review05.jpg", product: "구매 상품 05", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review06.jpg", product: "구매 상품 06", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review07.jpg", product: "구매 상품 07", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review08.jpg", product: "구매 상품 08", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review09.jpg", product: "구매 상품 09", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review10.jpg", product: "구매 상품 10", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review11.jpg", product: "구매 상품 11", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review12.jpg", product: "구매 상품 12", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review13.jpg", product: "구매 상품 13", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review14.jpg", product: "구매 상품 14", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review15.jpg", product: "구매 상품 15", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review16.jpg", product: "구매 상품 16", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review17.jpg", product: "구매 상품 17", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review18.jpg", product: "구매 상품 18", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review19.jpg", product: "구매 상품 19", review: "구매후기 내용을 입력하세요.", date: "" },
-    { image: "review20.jpg", product: "구매 상품 20", review: "구매후기 내용을 입력하세요.", date: "" }
-  ];
-
   const grid = document.getElementById("jyReviewGrid");
   const count = document.getElementById("jyReviewCount");
   const modal = document.getElementById("jy-review-modal");
@@ -518,6 +703,7 @@
 </script>
 
 <script src="script.js"></script>
+
 
 <style>
 /* JAEYUN SHOP CHARACTER THEME */
@@ -1379,191 +1565,318 @@ button:active {
     border-radius: 20px !important;
   }
 }
+/* =================================
+   JAEYUN SHOP 할인 배지
+================================= */
 
+/* 상품 이미지 영역 */
+#productList .product-image,
+#homeProducts .product-image {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 왼쪽 위 할인 배지 */
+.product-discount-badge {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  z-index: 10 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 6px 11px !important;
+  border-radius: 30px !important;
+
+  background: linear-gradient(
+    135deg,
+    #f3a9c6,
+    #c1b5ed
+  ) !important;
+
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 850 !important;
+  letter-spacing: -.2px !important;
+
+  border: 1px solid rgba(255,255,255,.75) !important;
+  box-shadow: 0 4px 12px rgba(190,145,190,.25) !important;
+
+  pointer-events: none !important;
+}
 </style>
 
-<!-- JAEYUN SHOP MAINTENANCE MODE -->
+<!-- 2027 수능 기념 이벤트 팝업 -->
 <style>
-  #jy-maintenance {
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    overflow-y: auto;
-    background:
-      radial-gradient(circle at 15% 15%, #f8e8f1 0, transparent 35%),
-      radial-gradient(circle at 90% 85%, #dff2fa 0, transparent 40%),
-      linear-gradient(145deg, #f9fbff, #edf5fc);
-    font-family: inherit;
-    color: #52677e;
+#jy-exam-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(53, 71, 91, .48);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#jy-exam-popup.open {
+  display: flex;
+  animation: examFade .25s ease;
+}
+
+@keyframes examFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jy-exam-card {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  padding: 27px 22px 23px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 28px;
+  border: 1px solid #e3eaf4;
+  background: linear-gradient(145deg, #fff, #f1f8fc 65%, #fbedf4);
+  box-shadow: 0 25px 70px rgba(48, 76, 110, .22);
+  animation: examUp .35s ease;
+}
+
+@keyframes examUp {
+  from { transform: translateY(20px) scale(.96); }
+  to { transform: translateY(0) scale(1); }
+}
+
+.jy-exam-close {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #eaf3f9;
+  color: #7795aa;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.jy-exam-label {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 30px;
+  color: #78aeca;
+  background: #eaf6fb;
+  border: 1px solid #d9ebf4;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.jy-exam-card h2 {
+  margin: 17px 0 9px;
+  color: #52677e;
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -1px;
+  line-height: 1.4;
+}
+
+.jy-exam-card h2 span {
+  color: #d995b7;
+}
+
+.jy-exam-desc {
+  margin: 0 0 17px;
+  color: #91a4b5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.jy-exam-image {
+  width: 100%;
+  height: 190px;
+  display: block;
+  object-fit: cover;
+  border-radius: 19px;
+  border: 1px solid #e2eaf1;
+  background: linear-gradient(135deg, #e8f5fb, #f9eaf2);
+}
+
+.jy-exam-discount {
+  margin-top: 17px;
+  padding: 17px 12px;
+  border-radius: 19px;
+  background: linear-gradient(120deg, #f9eaf2, #e9f5fb);
+  border: 1px solid #ebdfea;
+}
+
+.jy-exam-discount small {
+  display: block;
+  margin-bottom: 7px;
+  color: #bd8ba7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.jy-exam-discount strong {
+  display: block;
+  color: #607b94;
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: -.7px;
+  line-height: 1.5;
+}
+
+.jy-exam-discount p {
+  margin: 5px 0 0;
+  color: #91a4b5;
+  font-size: 11px;
+}
+
+.jy-exam-confirm {
+  width: 100%;
+  margin-top: 17px;
+  padding: 14px;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(110deg, #91cce3, #c2b5e8);
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(145,177,215,.2);
+}
+
+.jy-exam-footer {
+  margin-top: 13px;
+  color: #a4b3c1;
+  font-size: 10px;
+}
+
+@media(max-width: 400px) {
+  .jy-exam-card {
+    padding: 25px 17px 20px;
   }
 
-  #jy-maintenance * {
-    box-sizing: border-box;
+  .jy-exam-card h2 {
+    font-size: 21px;
   }
 
-  .jy-maintenance-card {
-    width: 100%;
-    max-width: 440px;
-    padding: 42px 28px 32px;
-    text-align: center;
-    background: rgba(255,255,255,.78);
-    border: 1px solid rgba(255,255,255,.95);
-    border-radius: 32px;
-    box-shadow: 0 25px 70px rgba(113,153,190,.16);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    animation: jyFadeIn .7s ease both;
+  .jy-exam-image {
+    height: 165px;
   }
-
-  @keyframes jyFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(18px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .jy-maintenance-logo {
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 22px;
-    display: grid;
-    place-items: center;
-    border-radius: 25px;
-    color: white;
-    font-size: 34px;
-    font-weight: 900;
-    background: linear-gradient(135deg,#edb6ce,#91cce3);
-    box-shadow: 0 10px 25px rgba(145,177,215,.3);
-  }
-
-  .jy-maintenance-brand {
-    color: #8bbbd5;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    margin-bottom: 24px;
-  }
-
-  .jy-maintenance-icon {
-    width: 66px;
-    height: 66px;
-    margin: 0 auto 20px;
-    display: grid;
-    place-items: center;
-    border-radius: 22px;
-    background: linear-gradient(135deg,#edf7fc,#f9edf4);
-    font-size: 30px;
-  }
-
-  .jy-maintenance-card h1 {
-    margin: 0 0 13px;
-    color: #52677e;
-    font-size: 27px;
-    font-weight: 850;
-    letter-spacing: -1.2px;
-  }
-
-  .jy-maintenance-card p {
-    margin: 0;
-    color: #91a4b5;
-    font-size: 14px;
-    line-height: 1.9;
-    word-break: keep-all;
-  }
-
-  .jy-maintenance-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 25px 0 20px;
-    padding: 10px 16px;
-    border-radius: 30px;
-    color: #79a9c4;
-    background: #edf7fb;
-    border: 1px solid #dcecf4;
-    font-size: 12px;
-    font-weight: 750;
-  }
-
-  .jy-maintenance-status i {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #e9a8c4;
-    box-shadow: 0 0 0 4px #e9a8c426;
-    animation: jyPulse 1.5s infinite;
-  }
-
-  @keyframes jyPulse {
-    50% { opacity: .4; }
-  }
-
-  .jy-maintenance-divider {
-    height: 1px;
-    margin: 5px 0 20px;
-    background: linear-gradient(90deg,transparent,#dce8f1,transparent);
-  }
-
-  .jy-maintenance-footer {
-    color: #a5b4c2;
-    font-size: 11px;
-    letter-spacing: .5px;
-  }
-
-  @media(max-width:480px) {
-    .jy-maintenance-card {
-      padding: 35px 23px 28px;
-      border-radius: 27px;
-    }
-
-    .jy-maintenance-card h1 {
-      font-size: 24px;
-    }
-  }
+}
 </style>
 
-<div id="jy-maintenance">
-  <div class="jy-maintenance-card">
+<div id="jy-exam-popup">
+  <div class="jy-exam-card">
 
-    <div class="jy-maintenance-logo">J</div>
+    <button class="jy-exam-close" id="jyExamClose">×</button>
 
-    <div class="jy-maintenance-brand">
-      JAEYUN SHOP
-    </div>
+    <span class="jy-exam-label">
+      JAEYUN SHOP SPECIAL EVENT
+    </span>
 
-    <div class="jy-maintenance-icon">🛠️</div>
+    <h2>
+      2027년 수능<br>
+      <span>재윤샵이 응원합니다!</span> 💗
+    </h2>
 
-    <h1>재윤샵 점검중 입니다!</h1>
-
-    <p>
-      더 나은 서비스와 쾌적한 이용 환경을 위해<br>
-      재윤샵을 잠시 정비하고 있습니다.<br>
-      점검 시간엔 모든 문의를 받지않습니다.
+    <p class="jy-exam-desc">
+      수험생 여러분의 새로운 시작을 응원합니다.<br>
+      원하는 모든곳 다 붙습니다!
     </p>
 
-    <div class="jy-maintenance-status">
-      <i></i>
-      수정내용 : 가격 수정 및 버그수정<br>
-      점검시간 : 오후 04시 00분 ~ <br>
-      오후 09시 00분 (약 240분) 
+    <!-- 이미지 파일을 exam-2027.jpg 이름으로 업로드 -->
+    <img
+      class="jy-exam-image"
+      src="수능화이팅.png"
+      alt="2027 수능 응원 이벤트"
+    >
+
+    <div class="jy-exam-discount">
+      <small>2027 CSAT SPECIAL BENEFIT</small>
+      <strong>
+        수능 기념<br>
+        모든 가격 전체 할인 중!
+      </strong>
+      <p>재윤샵에서 준비한 특별 이벤트</p>
     </div>
 
-    <div class="jy-maintenance-divider"></div>
+    <button class="jy-exam-confirm" id="jyExamConfirm">
+      확인했어요 💙
+    </button>
 
-    <div class="jy-maintenance-footer">
-      © 2026 JAEYUN SHOP. All rights reserved.
+    <div class="jy-exam-footer">
+      © 2026 JAEYUN SHOP. ALL RIGHTS RESERVED.
     </div>
 
   </div>
 </div>
+
+<script>
+(() => {
+  const examPopup = document.getElementById("jy-exam-popup");
+  const noticeModal = document.getElementById("noticeModal");
+
+  if (!examPopup || !noticeModal) {
+    console.error("팝업 요소를 찾을 수 없습니다.");
+    return;
+  }
+
+  let shown = false;
+
+  function showExamPopup() {
+    if (shown) return;
+    shown = true;
+    examPopup.classList.add("open");
+  }
+
+  // 기존 공지 팝업이 닫히는지 감지
+  const observer = new MutationObserver(() => {
+    if (noticeModal.hidden) {
+      observer.disconnect();
+      setTimeout(showExamPopup, 350);
+    }
+  });
+
+  observer.observe(noticeModal, {
+    attributes: true,
+    attributeFilter: ["hidden", "style", "class"]
+  });
+
+  // 기존 공지 팝업이 처음부터 닫혀 있는 경우도 처리
+  if (noticeModal.hidden) {
+    setTimeout(showExamPopup, 500);
+  }
+
+  // 수능 팝업 닫기
+  function closeExamPopup() {
+    examPopup.classList.remove("open");
+  }
+
+  document.getElementById("jyExamClose")
+    ?.addEventListener("click", closeExamPopup);
+
+  document.getElementById("jyExamConfirm")
+    ?.addEventListener("click", closeExamPopup);
+
+  examPopup.addEventListener("click", event => {
+    if (event.target === examPopup) closeExamPopup();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeExamPopup();
+  });
+})();
+</script>
 
 </body>
 </html>
