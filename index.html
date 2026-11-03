@@ -1382,5 +1382,188 @@ button:active {
 
 </style>
 
+<!-- JAEYUN SHOP MAINTENANCE MODE -->
+<style>
+  #jy-maintenance {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+    background:
+      radial-gradient(circle at 15% 15%, #f8e8f1 0, transparent 35%),
+      radial-gradient(circle at 90% 85%, #dff2fa 0, transparent 40%),
+      linear-gradient(145deg, #f9fbff, #edf5fc);
+    font-family: inherit;
+    color: #52677e;
+  }
+
+  #jy-maintenance * {
+    box-sizing: border-box;
+  }
+
+  .jy-maintenance-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 42px 28px 32px;
+    text-align: center;
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 32px;
+    box-shadow: 0 25px 70px rgba(113,153,190,.16);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: jyFadeIn .7s ease both;
+  }
+
+  @keyframes jyFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .jy-maintenance-logo {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 25px;
+    color: white;
+    font-size: 34px;
+    font-weight: 900;
+    background: linear-gradient(135deg,#edb6ce,#91cce3);
+    box-shadow: 0 10px 25px rgba(145,177,215,.3);
+  }
+
+  .jy-maintenance-brand {
+    color: #8bbbd5;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+
+  .jy-maintenance-icon {
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg,#edf7fc,#f9edf4);
+    font-size: 30px;
+  }
+
+  .jy-maintenance-card h1 {
+    margin: 0 0 13px;
+    color: #52677e;
+    font-size: 27px;
+    font-weight: 850;
+    letter-spacing: -1.2px;
+  }
+
+  .jy-maintenance-card p {
+    margin: 0;
+    color: #91a4b5;
+    font-size: 14px;
+    line-height: 1.9;
+    word-break: keep-all;
+  }
+
+  .jy-maintenance-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 25px 0 20px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    color: #79a9c4;
+    background: #edf7fb;
+    border: 1px solid #dcecf4;
+    font-size: 12px;
+    font-weight: 750;
+  }
+
+  .jy-maintenance-status i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e9a8c4;
+    box-shadow: 0 0 0 4px #e9a8c426;
+    animation: jyPulse 1.5s infinite;
+  }
+
+  @keyframes jyPulse {
+    50% { opacity: .4; }
+  }
+
+  .jy-maintenance-divider {
+    height: 1px;
+    margin: 5px 0 20px;
+    background: linear-gradient(90deg,transparent,#dce8f1,transparent);
+  }
+
+  .jy-maintenance-footer {
+    color: #a5b4c2;
+    font-size: 11px;
+    letter-spacing: .5px;
+  }
+
+  @media(max-width:480px) {
+    .jy-maintenance-card {
+      padding: 35px 23px 28px;
+      border-radius: 27px;
+    }
+
+    .jy-maintenance-card h1 {
+      font-size: 24px;
+    }
+  }
+</style>
+
+<div id="jy-maintenance">
+  <div class="jy-maintenance-card">
+
+    <div class="jy-maintenance-logo">J</div>
+
+    <div class="jy-maintenance-brand">
+      JAEYUN SHOP
+    </div>
+
+    <div class="jy-maintenance-icon">🛠️</div>
+
+    <h1>재윤샵 점검중 입니다!</h1>
+
+    <p>
+      더 나은 서비스와 쾌적한 이용 환경을 위해<br>
+      재윤샵을 잠시 정비하고 있습니다.<br>
+      점검 시간엔 모든 문의를 받지않습니다.
+    </p>
+
+    <div class="jy-maintenance-status">
+      <i></i>
+      수정내용 : 가격 수정 및 버그수정<br>
+      점검시간 : 오후 04시 00분 ~ <br>
+      오후 05시 00분 (약 60분) 
+    </div>
+
+    <div class="jy-maintenance-divider"></div>
+
+    <div class="jy-maintenance-footer">
+      © 2026 JAEYUN SHOP. All rights reserved.
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
