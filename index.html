@@ -544,11 +544,11 @@
 
   if (!grid || !count || !modal) return;
 
-  const reviews = purchaseReviews.filter(item =>
-    item.image &&
-    item.product &&
-    !item.product.startsWith("구매 상품 ")
-  );
+const reviews = (window.purchaseReviews || []).filter(item =>
+  item.image &&
+  item.product &&
+  !item.product.startsWith("구매 상품 ")
+);
 
   count.textContent = reviews.length + " REVIEWS";
 
@@ -641,8 +641,8 @@
   if (!widget || widget.dataset.ready) return;
   widget.dataset.ready = "true";
 
-  const stock = 300000;
-  const maxStock = 300000;
+  const stock = 2500000;
+  const maxStock = 2500000;
   const $ = selector => widget.querySelector(selector);
 
   const safeStock = Math.max(0, stock);
