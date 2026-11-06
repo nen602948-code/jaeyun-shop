@@ -500,7 +500,7 @@
     <div class="cs-data">
       <span class="cs-label">구매 가능 재고</span>
       <div class="cs-number">
-        <strong id="cs-stock-number">300,000</strong>
+        <strong id="cs-stock-number">5,400,000</strong>
         <span>미네랄</span>
       </div>
       <div class="cs-track">
@@ -640,8 +640,8 @@ const reviews = (window.purchaseReviews || []).filter(item =>
   if (!widget || widget.dataset.ready) return;
   widget.dataset.ready = "true";
 
-  const stock = 2500000;
-  const maxStock = 2500000;
+  const stock = 5400000;
+  const maxStock = 5400000;
   const $ = selector => widget.querySelector(selector);
 
   const safeStock = Math.max(0, stock);
