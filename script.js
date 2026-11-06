@@ -11,6 +11,33 @@ const NOTICE_KEY = "jaeyunShopNoticeHiddenUntil";
 /* 1. 상품 데이터 */
 
 const products = [
+    {
+    id: "clan15",
+    name: "기본무기 20강",
+    category: "reboot",
+    categoryName: "기본무기 20강",
+    description: "기본무기 1강에서 20강까지 대리입니다.",
+    price: 50000,
+    image: "기본무기 20강.png"
+  },
+  {
+    id: "clan15",
+    name: "강화티켓 1000장",
+    category: "reboot",
+    categoryName: "강화티켓 1000장",
+    description: "강화티켓 1000장 대리 입니다.",
+    price: 20000,
+    image: "강화티켓 1000장.png"
+  },
+  {
+    id: "clan15",
+    name: "강화티켓 100장",
+    category: "reboot",
+    categoryName: "강화티켓 100장",
+    description: "강화티켓 100장 대리 입니다.",
+    price: 2000,
+    image: "강화티켓100장.png"
+  },
   {
     id: "clan15",
     name: "15렙 클랜 제작",
@@ -269,8 +296,10 @@ function createProductCard(product) {
 
   const discountBadge = document.createElement("span");
   discountBadge.className = "product-discount-badge";
+if (product.category !== "reboot") {
   discountBadge.textContent = "✦ 할인중";
   imageArea.appendChild(discountBadge);
+}
 
   const fallback = document.createElement("div");
   fallback.className = "product-image-fallback";
