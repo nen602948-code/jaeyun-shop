@@ -644,7 +644,7 @@ const reviews = (window.purchaseReviews || []).filter(item =>
   const maxStock = 13300000;
   const $ = selector => widget.querySelector(selector);
 
-  const safeStock = Math.max(0, stock);
+  const safeStock = Math.max(0, Ftock);
   const ratio = Math.max(0, Math.min(100, safeStock / maxStock * 100));
 
   $("#cs-stock-number").textContent = safeStock.toLocaleString("ko-KR");
@@ -1785,33 +1785,33 @@ button:active {
     </span>
 
     <h2>
-      2027년 수능<br>
-      <span>재윤샵이 응원합니다!</span> 💗
+      11월 일정표<br>
+      <span>재윤샵 휴무 안내</span> 
     </h2>
 
     <p class="jy-exam-desc">
-      수험생 여러분의 새로운 시작을 응원합니다.<br>
-      원하는 모든곳 다 붙습니다!
+      12 13 14일은 재윤샵 정기 휴일입니다.<br>
+      이 날엔 모든 문의를 받지 않습니다.
     </p>
 
     <!-- 이미지 파일을 exam-2027.jpg 이름으로 업로드 -->
     <img
       class="jy-exam-image"
-      src="수능화이팅.png"
+      src="달력수정.png"
       alt="2027 수능 응원 이벤트"
     >
 
     <div class="jy-exam-discount">
-      <small>2027 CSAT SPECIAL BENEFIT</small>
+      <small></small>
       <strong>
-        수능 기념<br>
-        모든 가격 전체 할인 중!
+        <br>
+        
       </strong>
-      <p>재윤샵에서 준비한 특별 이벤트</p>
+      <p></p>
     </div>
 
     <button class="jy-exam-confirm" id="jyExamConfirm">
-      확인했어요 💙
+      확인했어요 
     </button>
 
     <div class="jy-exam-footer">
@@ -1889,5 +1889,116 @@ button:active {
   -webkit-text-fill-color: #000000 !important;
 }
 </style>
+
+<style>
+/* 재윤샵 가격표만 휴무 처리 */
+body.shop-closed #pricePage #productList .product-card {
+  filter: grayscale(1) !important;
+  opacity: .65 !important;
+  position: relative;
+}
+
+body.shop-closed #pricePage #productList .product-card::after {
+  content: "🔒 재윤샵 휴무중";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  z-index: 10;
+  background: #454545;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+body.shop-closed #pricePage #productList .add-cart-btn {
+  filter: grayscale(1);
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+#jaeyun-closed-toast {
+  position: fixed;
+  z-index: 999999;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #343434;
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+  text-align: center;
+  width: max-content;
+  max-width: 90%;
+}
+
+#jaeyun-closed-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+</style>
+
+<script>
+(() => {
+  const SHOP_CLOSED = true;
+  if (!SHOP_CLOSED) return;
+
+  document.body.classList.add("shop-closed");
+
+  const MESSAGE =
+    "재윤샵 휴무 중엔 이용할 수 없는 서비스입니다.";
+
+  const toast = document.createElement("div");
+  toast.id = "jaeyun-closed-toast";
+  toast.textContent = MESSAGE;
+  document.body.appendChild(toast);
+
+  let timer;
+
+  function showClosedMessage() {
+    toast.classList.add("show");
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+  }
+
+  // 가격표 안의 장바구니 버튼만 차단
+  document.addEventListener("click", event => {
+    const addButton = event.target.closest(
+      "#pricePage #productList .add-cart-btn"
+    );
+
+    if (addButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      showClosedMessage();
+      return;
+    }
+
+    // 주문 양식 복사만 차단
+    const copyButton = event.target.closest("#copyCartOrder");
+
+    if (copyButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      showClosedMessage();
+    }
+  }, true);
+
+  console.log("JAEYUN SHOP: 가격표 휴무 모드");
+})();
+</script>
+
 </body>
 </html>

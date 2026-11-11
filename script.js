@@ -107,7 +107,7 @@ const products = [
     category: "exp",
     categoryName: "경험치",
     description: "100만 경험치 획득 서비스입니다.",
-    price: 15000,
+    price: 20000,
     image: "슈우웃.png"
   },
   {
@@ -116,7 +116,7 @@ const products = [
     category: "mineral",
     categoryName: "미네랄",
     description: "미네랄 100만 단위",
-    price: 8500,
+    price: 9500,
     image: "100만.png"
   },
   {
@@ -125,7 +125,7 @@ const products = [
     category: "mineral",
     categoryName: "미네랄",
     description: "미네랄 500만 단위",
-    price: 35000,
+    price: 45000,
     image: "500만.png"
   },
   {
@@ -134,7 +134,7 @@ const products = [
     category: "mineral",
     categoryName: "미네랄",
     description: "미네랄 1000만 단위",
-    price: 77000,
+    price: 80000,
     image: "1000만.png"
   },
   {
