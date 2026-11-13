@@ -305,7 +305,7 @@ if (product.category !== "reboot") {
   fallback.className = "product-image-fallback";
 
   const icon = document.createElement("strong");
-  icon.textContent = product.category === "aram" ? "🪙" : "🎃";
+  icon.textContent = product.category === "aram" ? "🌌" : "🌌";
 
   const logo = document.createElement("span");
   logo.textContent = "JAEYUN SHOP";
@@ -565,7 +565,7 @@ function renderCart() {
 
     const icon = document.createElement("div");
     icon.className = "cart-item-icon";
-    icon.textContent = item.category === "aram" ? "🪙" : "🎃";
+    icon.textContent = item.category === "aram" ? "🌌" : "🌌";
 
     const info = document.createElement("div");
     info.className = "cart-item-info";
@@ -813,3 +813,165 @@ if (document.readyState === "loading") {
 } else {
   initShop();
 }
+
+/* ==========================================
+   JAEYUN SHOP - GLOBAL BGM SYSTEM
+   모든 페이지에서 메인 BGM 유지
+========================================== */
+
+(() => {
+  const mainBgm = document.getElementById("mainBgm");
+  const priceBgm = document.getElementById("priceBgm");
+
+  const volume = document.getElementById("bgmVolume");
+  const volumeText = document.getElementById("bgmVolumeText");
+
+  const toggle = document.getElementById("bgmToggle");
+  const toggleIcon = document.getElementById("bgmToggleIcon");
+  const toggleText = document.getElementById("bgmToggleText");
+  const trackName = document.getElementById("bgmTrackName");
+
+  // 필수 요소 확인
+  if (
+    !mainBgm ||
+    !volume ||
+    !volumeText ||
+    !toggle ||
+    !toggleIcon ||
+    !toggleText ||
+    !trackName
+  ) {
+    console.error("JAEYUN SHOP BGM 요소를 찾을 수 없습니다.");
+    return;
+  }
+
+  /* 기본 설정 */
+  const DEFAULT_VOLUME = 10;
+
+  let enabled = true;
+  let unlocked = false;
+
+  mainBgm.loop = true;
+  mainBgm.muted = false;
+  mainBgm.volume = DEFAULT_VOLUME / 100;
+
+  // 가격표 전용 음악은 사용하지 않음
+  if (priceBgm) {
+    priceBgm.pause();
+    priceBgm.volume = 0;
+  }
+
+  /* ======================================
+     볼륨 조절
+  ====================================== */
+
+  volume.min = 1;
+  volume.max = 100;
+  volume.step = 1;
+  volume.value = DEFAULT_VOLUME;
+
+  function updateVolume() {
+    const value = Number(volume.value);
+
+    mainBgm.volume = value / 100;
+    volumeText.textContent = value + "%";
+  }
+
+  volume.addEventListener("input", updateVolume);
+  volume.addEventListener("change", updateVolume);
+
+  /* ======================================
+     버튼 표시
+  ====================================== */
+
+  function updateButton() {
+    toggleIcon.textContent = enabled ? "♫" : "♪";
+    toggleText.textContent = enabled ? "음악 끄기" : "음악 켜기";
+  }
+
+  /* ======================================
+     메인 BGM 재생
+  ====================================== */
+
+  async function playMainBgm() {
+    if (!enabled) return;
+
+    updateVolume();
+
+    // 이미 재생 중이면 처음부터 다시 시작하지 않음
+    if (!mainBgm.paused) return;
+
+    try {
+      await mainBgm.play();
+      trackName.textContent = "MAIN THEME";
+    } catch (error) {
+      console.log("BGM 자동 재생이 차단되었습니다. 사용자 입력을 기다립니다.");
+      trackName.textContent = "MAIN THEME";
+    }
+  }
+
+  /* ======================================
+     첫 사용자 상호작용
+  ====================================== */
+
+  function unlockAudio() {
+    if (unlocked) return;
+
+    unlocked = true;
+
+    if (enabled) {
+      playMainBgm();
+    }
+  }
+
+  document.addEventListener("pointerdown", unlockAudio);
+  document.addEventListener("keydown", unlockAudio);
+
+  /* ======================================
+     음악 켜기 / 끄기
+  ====================================== */
+
+  toggle.addEventListener("click", async () => {
+    unlocked = true;
+
+    if (enabled) {
+      enabled = false;
+
+      mainBgm.pause();
+
+      if (priceBgm) {
+        priceBgm.pause();
+      }
+
+      trackName.textContent = "MUSIC OFF";
+    } else {
+      enabled = true;
+
+      await playMainBgm();
+    }
+
+    updateButton();
+  });
+
+  /* ======================================
+     페이지 이동과 관계없이 음악 유지
+  ====================================== */
+
+  // 페이지별 음악 전환 기능 없음
+  // 메인, 가격표, 장바구니, 주문 안내, 규칙
+  // 모든 화면에서 동일한 mainBgm을 사용함.
+
+  /* ======================================
+     초기화
+  ====================================== */
+
+  updateVolume();
+  updateButton();
+
+  trackName.textContent = "MAIN THEME";
+
+  // 사이트 진입 시 자동 재생 시도
+  playMainBgm();
+
+  console.log("JAEYUN SHOP GLOBAL BGM READY");
+})();
